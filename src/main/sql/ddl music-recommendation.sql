@@ -29,7 +29,7 @@ create table user_playlist(
 );
 
 create table playlist(
-	p_id serial primary key,
+	p_id int primary key,
 	p_title varchar(50),
 	s_id int,
 	foreign key(s_id) references songs(id)

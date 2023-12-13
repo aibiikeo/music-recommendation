@@ -29,7 +29,7 @@ Welcome to the Music Recommendation System project! This Java-based system provi
 
     ```bash
     java -jar music-recommendation-system.jar
-    ``@!#$`
+    ```
 
 ## Usage
 - Create a user profile.

@@ -19,12 +19,17 @@ Welcome to the Music Recommendation System project! This Java-based system provi
 - **Frontend**: JavaFX
 - **Dependency Management**: Maven 
 
-## Installation
+## How to run
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/aibikeo/music-recommendation.git
+1. Download the JAR package from the [release page](https://github.com/aibiikeo/music-recommendation/releases).
 
+2. Open a terminal and navigate to the directory where the JAR file is located.
+
+3. Run the following command to start the application:
+
+    ```bash
+    java -jar music-recommendation-system.jar
+    ``@!#$`
 
 ## Usage
 - Create a user profile.

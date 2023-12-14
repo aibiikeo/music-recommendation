@@ -10,39 +10,39 @@ Welcome to the Music Recommendation System project! This Java-based system provi
 - Melisova Altynai
 
 ## Project Requirements List
-1. User Authentication 
+1. User Authentication -
 Implement a secure user authentication system to allow users to create accounts and log in.
    
-2. Database Integration 
+2. Database Integration -
 Connect the application to a PostgreSQL database to store user data, music information, and user preferences.
    
-3. User Profile Creation
+3. User Profile Creation -
 Enable users to create and manage profiles with details such as username, password, and music preferences.
 
-4. Music Data Retrieval
+4. Music Data Retrieval -
 Fetch music data from an external source and store it in the PostgreSQL database.
 
-5. Playlist Management
+5. Playlist Management -
 Provide users with the ability to create, edit, and manage playlists.
 Allow users to add or remove songs from playlists.
    
-7. JavaFX Frontend
+7. JavaFX Frontend -
 Implement a JavaFX frontend for the application with an intuitive and user-friendly interface.
 Design screens for user authentication, music browsing, and playlist management.
    
-8. Responsive Design
+8. Responsive Design -
 Ensure the JavaFX frontend is responsive and works seamlessly across various screen sizes.
 
-9. Documentation
+9. Documentation -
 Create comprehensive documentation for setting up the development environment, database schema, and instructions for using the application.
 
-10. Error Handling
+10. Error Handling -
 Implement effective error handling to gracefully manage issues such as database connection errors.
 
 ## Roles of group members
-**Omorova Aibiike** - MVC, 50% main page code, 50% database, 50% main page tutorial
-**Omushova Eldana** - login page code, GUI, presentation, How to Use Tutorial Video, login page tutorial
-**Melisova Altynai** - documentation, JAR Package File, 50% database, 50% main page code, 50% main page tutorial
+1. **Omorova Aibiike** - MVC, 50% main page code, 50% database, 50% main page tutorial
+2. **Omushova Eldana** - login page code, GUI, presentation, How to Use Tutorial Video, login page tutorial
+3. **Melisova Altynai** - documentation, JAR Package File, 50% database, 50% main page code, 50% main page tutorial
 
 
 ## Technologies Used

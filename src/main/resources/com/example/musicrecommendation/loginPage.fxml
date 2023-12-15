@@ -10,18 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.controller">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.controller">
    <top>
-      <VBox VBox.vgrow="ALWAYS" prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
          <children>
             <Label prefHeight="97.0" prefWidth="409.0" text="   Melodify" textFill="WHITE">
                <font>
                   <Font name="Andale Mono" size="39.0" />
                </font>
             </Label>
-
          </children>
-
       </VBox>
    </top>
    <center>

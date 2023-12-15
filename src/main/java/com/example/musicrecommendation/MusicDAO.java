@@ -42,7 +42,7 @@ public class MusicDAO {
         }
     }
     public boolean isPasswordInDatabase(String email, String password) throws SQLException {
-        String sql = "SELECT COUNT(*) AS count FROM \"rec\".users WHERE email = ? AND password = ?";
+        String sql = "SELECT COUNT(*) AS count FROM \"public\".user WHERE email = ? AND password = ?";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, email);
             statement.setString(2, password);
@@ -64,7 +64,7 @@ public class MusicDAO {
         return false;
     }
     public boolean addtodatabase(String email, String password) throws SQLException {
-        String sql = "INSERT INTO \"rec\".users (email, password) VALUES (?, ?)";
+        String sql = "INSERT INTO \"public\".user (email, password) VALUES (?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, email);
             statement.setString(2, password);

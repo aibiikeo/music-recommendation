@@ -68,7 +68,11 @@ public class controller {
             if (musicDAO.isPasswordInDatabase(logInPage.getEmail(), logInPage.getPassword())) {
                 Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
                 stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root);
+                ScrollPane scrollPane = new ScrollPane();
+                scrollPane.setContent(root);
+                scene = new Scene(scrollPane);
+                scrollPane.setFitToWidth(true);
+                scrollPane.setFitToHeight(true);
                 stage.setScene(scene);
                 stage.show();
             } else {

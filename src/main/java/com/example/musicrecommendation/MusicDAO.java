@@ -9,9 +9,9 @@ import javax.sql.DataSource;
 
 public class MusicDAO {
     private Connection conn;
-    private String url = "jdbc:postgresql://localhost:5432/project";
+    private String url = "jdbc:postgresql://localhost:5432/music-recommedation";
     private String username = "postgres";
-    private String pass = "21442139";
+    private String pass = "123456";
     LogInPage logInPage = new LogInPage();
 
     private static DataSource dataSource;
@@ -23,9 +23,9 @@ public class MusicDAO {
     public MusicDAO() {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/project";
+            String url = "jdbc:postgresql://localhost:5432/music-recommedation";
             conn = DriverManager.getConnection(url, username, pass);
-            conn.setAutoCommit(true);
+            conn.setAutoCommit(false);
 
             // Test the connection
             if (conn.isValid(1)) {
@@ -52,10 +52,10 @@ public class MusicDAO {
         }
     }
 
-    public boolean isPasswordInDatabase(String email, String password) throws SQLException {
+    public boolean isPasswordInDatabase(String login, String password) throws SQLException {
         String sql = "SELECT COUNT(*) AS count FROM \"public\".user_info WHERE login = ? AND password = ?";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setString(1, email);
+            statement.setString(1, login);
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -75,10 +75,10 @@ public class MusicDAO {
         return false;
     }
 
-    public boolean addtodatabase(String email, String password) throws SQLException {
+    public boolean addtodatabase(String login, String password) throws SQLException {
         String sql = "INSERT INTO \"public\".user_info (login, password) VALUES (?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
-            statement.setString(1, email);
+            statement.setString(1, login);
             statement.setString(2, password);
             int affectedRows = statement.executeUpdate();
 

@@ -25,7 +25,7 @@
     <center>
         <VBox maxHeight="400.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="400.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
             <children>
-                <Label alignment="CENTER" prefHeight="108.0" prefWidth="399.0" style="-fx-border-color: darkblue; -fx-border-color: ;" text="Welcome to Melodify" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                <Label alignment="CENTER" prefHeight="108.0" prefWidth="399.0" style="-fx-border-color: darkblue;" text="Welcome to Melodify" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                     <font>
                         <Font size="31.0" />
                     </font>

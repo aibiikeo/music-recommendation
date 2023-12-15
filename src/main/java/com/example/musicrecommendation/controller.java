@@ -1,21 +1,23 @@
 package com.example.musicrecommendation;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
+
 
 public class controller {
     @FXML
@@ -29,30 +31,24 @@ public class controller {
     @FXML
     private PasswordField inputPassword;
     private List<String> recommendations = new ArrayList<>();
+    Randomblock randomblock = new Randomblock();
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @FXML
+    private TextField searchField;
     MusicDAO musicDAO = new MusicDAO();
 
+    @FXML
+    private ListView<Song> songListView;
 
-//    public void onButtonLogIn(ActionEvent event) throws IOException  {
-//        LogInPage logInPage = new LogInPage();
-//        logInPage.setEmail(inputEmail.getText());
-//        logInPage.setPassword(inputPassword.getText());
-//
-//        try {
-//            if (musicDAO.isEmailInDatabase(logInPage.getEmail()) && musicDAO.isPasswordInDatabase(logInPage.getPassword())) {
-//                Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-//                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-//                scene = new Scene(root);
-//                stage.setScene(scene);
-//                stage.show();
-//            }
-//        } catch (Exception e) {
-//            // Catching any exceptions that might occur during database operations
-//            e.printStackTrace();
-//        }
-//    }
+
+
+    public void initialize(URL location, ResourceBundle resources) {
+        // Set the cell factory to display songs
+        songListView.setCellFactory((Callback<ListView<Song>, ListCell<Song>>) new SongListCellFactory());
+    }
 
 
 
@@ -76,7 +72,7 @@ public class controller {
                 stage.setScene(scene);
                 stage.show();
             } else {
-                alert("You don't have an account.\nOr error in entering email and password");
+                alert("You don't have an account.\nOr error in entering login and password");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,13 +85,38 @@ public class controller {
         try {
             if (!musicDAO.isPasswordInDatabase(logInPage.getEmail(), logInPage.getPassword())) {
                 musicDAO.addtodatabase(logInPage.getEmail(), logInPage.getPassword());
-                alert("You created an account! Success! Now log in please");
+                alert("You created an account! Success!");
 
             } else {
-                alert("Error!");
+                alert("You don't have an account.\nOr error in entering email and password");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    @FXML
+    private void handleSearch() {
+
+        String searchTerm = searchField.getText();
+        if (searchTerm != null && !searchTerm.isEmpty()) {
+            // Perform the search query using the searchTerm
+            MusicDAO musicDAO = new MusicDAO();
+
+            try (Connection connection = musicDAO.getConnection()) {
+                // Your database operations using the connection...
+            } catch (SQLException e) {
+                e.printStackTrace(); // Handle the exception appropriately
+            }
+        }
+    }
+
+    private void loadSongs() {
+        // Use your MusicDAO or another class to get a list of songs from the database
+        List<Song> songs = musicDAO.getAllSongs();
+
+        // Populate the ListView with songs
+        songListView.getItems().addAll(songs);
     }
 }

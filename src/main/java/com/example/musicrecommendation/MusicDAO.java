@@ -1,19 +1,29 @@
 package com.example.musicrecommendation;
 
+
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import javax.sql.DataSource;
+
 
 public class MusicDAO {
-
     private Connection conn;
+    private String url = "jdbc:postgresql://localhost:5432/project";
     private String username = "postgres";
-    private String pass = "654321";
+    private String pass = "21442139";
     LogInPage logInPage = new LogInPage();
 
+    private static DataSource dataSource;
+
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(url, username, pass);
+    }
 
     public MusicDAO() {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/postgres";
+            String url = "jdbc:postgresql://localhost:5432/project";
             conn = DriverManager.getConnection(url, username, pass);
             conn.setAutoCommit(true);
 
@@ -23,15 +33,15 @@ public class MusicDAO {
             } else {
                 System.out.println("Failed to connect to the database!");
             }
-        }  catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();  // Print the full stack trace
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
+
     public void closeConnection() {
         try {
             if (conn != null && !conn.isClosed()) {
@@ -41,8 +51,9 @@ public class MusicDAO {
             throw new RuntimeException("Error closing the database connection", e);
         }
     }
+
     public boolean isPasswordInDatabase(String email, String password) throws SQLException {
-        String sql = "SELECT COUNT(*) AS count FROM \"public\".user WHERE email = ? AND password = ?";
+        String sql = "SELECT COUNT(*) AS count FROM \"public\".user_info WHERE login = ? AND password = ?";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, email);
             statement.setString(2, password);
@@ -63,13 +74,14 @@ public class MusicDAO {
 
         return false;
     }
+
     public boolean addtodatabase(String email, String password) throws SQLException {
-        String sql = "INSERT INTO \"public\".user (email, password) VALUES (?, ?)";
+        String sql = "INSERT INTO \"public\".user_info (login, password) VALUES (?, ?)";
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, email);
             statement.setString(2, password);
             int affectedRows = statement.executeUpdate();
-            // Check if the insertion was successful
+
             if (affectedRows > 0) {
                 System.out.println("Record inserted successfully.");
 
@@ -85,4 +97,47 @@ public class MusicDAO {
 
 
     }
+
+    public List<Song> getAllSongs() {
+        List<Song> songs = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection()) {
+            String query = "SELECT * FROM songs";
+            try (PreparedStatement statement = connection.prepareStatement(query)) {
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    while (resultSet.next()) {
+                        Song song = new Song();
+                        song.setId(resultSet.getInt("id"));
+                        song.setTitle(resultSet.getString("title"));
+                        song.setGenre(resultSet.getString("genre"));
+
+
+                        songs.add(song);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return songs;
+    }
+
+    public static void addToPlaylist(int userId, int songId) {
+        String addToPlaylistQuery = "INSERT INTO user_playlist (u_id, s_id) VALUES (?, ?)";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(addToPlaylistQuery)) {
+
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, songId);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

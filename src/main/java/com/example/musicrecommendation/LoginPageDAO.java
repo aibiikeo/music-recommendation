@@ -2,25 +2,16 @@ package com.example.musicrecommendation;
 
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import javax.sql.DataSource;
 
 
-public class MusicDAO {
+public class LoginPageDAO {
     private Connection conn;
     private String url = "jdbc:postgresql://localhost:5432/music-recommedation";
     private String username = "postgres";
     private String pass = "123456";
     LogInPage logInPage = new LogInPage();
 
-    private static DataSource dataSource;
-
-    public Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, username, pass);
-    }
-
-    public MusicDAO() {
+    public LoginPageDAO() {
         try {
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://localhost:5432/music-recommedation";
@@ -71,7 +62,6 @@ public class MusicDAO {
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
         }
-
         return false;
     }
 
@@ -94,50 +84,5 @@ public class MusicDAO {
             throw new RuntimeException("Error inserting data into the database", e);
         }
         return false;
-
-
     }
-
-    public List<Song> getAllSongs() {
-        List<Song> songs = new ArrayList<>();
-
-        try (Connection connection = dataSource.getConnection()) {
-            String query = "SELECT * FROM songs";
-            try (PreparedStatement statement = connection.prepareStatement(query)) {
-                try (ResultSet resultSet = statement.executeQuery()) {
-                    while (resultSet.next()) {
-                        Song song = new Song();
-                        song.setId(resultSet.getInt("id"));
-                        song.setTitle(resultSet.getString("title"));
-                        song.setGenre(resultSet.getString("genre"));
-
-
-                        songs.add(song);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return songs;
-    }
-
-    public static void addToPlaylist(int userId, int songId) {
-        String addToPlaylistQuery = "INSERT INTO user_playlist (u_id, s_id) VALUES (?, ?)";
-
-        try (Connection connection = dataSource.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(addToPlaylistQuery)) {
-
-            preparedStatement.setInt(1, userId);
-            preparedStatement.setInt(2, songId);
-
-            preparedStatement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

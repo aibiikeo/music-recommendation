@@ -25,7 +25,7 @@ public class SongListCellFactory extends ListCell<Song> {
 
     private void addToPlaylist(Song song) {
 
-        MusicDAO.addToPlaylist(user.getId(), song.getId());
+        MainPageDAO.addToPlaylist(user.getId(), song.getId());
 
     }
 }

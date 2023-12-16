@@ -4,6 +4,8 @@ public class Song {
     private int id;
     private String title;
     private String genre;
+    private int year;
+    private int popularity;
 
 
     public Song() {
@@ -32,6 +34,22 @@ public class Song {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(int popularity) {
+        this.popularity = popularity;
     }
 }
 

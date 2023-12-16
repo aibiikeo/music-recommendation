@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -40,15 +39,12 @@
                   <children>
                       <HBox>
                           <children>
-                              <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0">
-                                  <HBox.margin>
-                                      <Insets left="20.0" top="20.0" />
-                                  </HBox.margin>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                              </TextField>
-                              <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #99b3ff;" text="Search">
+                        <ComboBox fx:id="box" editable="true" onAction="#comboBoxSelected" prefHeight="39.0" prefWidth="250.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                              <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#searchButtonClicked" prefWidth="100.0" style="-fx-background-color: #99b3ff;" text="Search">
                                   <HBox.margin>
                                       <Insets left="5.0" top="20.0" />
                                   </HBox.margin>

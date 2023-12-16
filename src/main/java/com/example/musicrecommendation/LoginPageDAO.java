@@ -6,15 +6,14 @@ import java.sql.*;
 
 public class LoginPageDAO {
     private Connection conn;
-    private String url = "jdbc:postgresql://localhost:5432/music-recommedation";
+    private String url = "jdbc:postgresql://localhost:5432/project";
     private String username = "postgres";
-    private String pass = "123456";
+    private String pass = "21442139";
     LogInPage logInPage = new LogInPage();
 
     public LoginPageDAO() {
         try {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost:5432/music-recommedation";
             conn = DriverManager.getConnection(url, username, pass);
             conn.setAutoCommit(false);
 

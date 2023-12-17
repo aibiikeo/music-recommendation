@@ -38,7 +38,7 @@ public class LoginPageController {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
                 Parent root = loader.load();
-                MainPageController mainPageController = loader.getController(); // Replace with appropriate way to get the controller
+                MainPageController mainPageController = loader.getController();
                 mainPageController.show();
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();

@@ -128,4 +128,58 @@ public class MainPageDAO {
             e.printStackTrace();
         }
     }
+
+    public void popularSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs order by popularity desc");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void newSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs s order by year desc");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void oldSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs s order by year asc;");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

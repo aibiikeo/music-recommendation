@@ -60,15 +60,6 @@ public class MainPageController {
     private Label pTitle5;
 
     @FXML
-    private Label popularSongs;
-
-    @FXML
-    private Label newSongs;
-
-    @FXML
-    private Label oldSongs;
-
-    @FXML
     private ComboBox<String> songGenre;
 
     @FXML
@@ -76,6 +67,7 @@ public class MainPageController {
 
     @FXML
     private ComboBox<String> box;
+
     @FXML
     private Label playlistTitle;
 
@@ -83,8 +75,6 @@ public class MainPageController {
 
     private List<Label> pTitleList;
     private List<Label> sTitleList;
-
-
 
     public void initialize() {
         pTitleList = new ArrayList<>();
@@ -248,4 +238,21 @@ public class MainPageController {
             playlistTitle.setText(String.valueOf(clickedText));
         }
     }
+
+    @FXML
+    public void popularSongsShow(){
+        mainPageDAO.popularSongsShow(sTitleList);
+    }
+
+    @FXML
+    public void newSongsShow(){
+        mainPageDAO.newSongsShow(sTitleList);
+    }
+
+    @FXML
+    public void oldSongsShow(){
+        mainPageDAO.oldSongsShow(sTitleList);
+    }
+
+
 }

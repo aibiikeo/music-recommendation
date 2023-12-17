@@ -366,7 +366,7 @@
             </ScrollPane>
             <HBox layoutX="382.0" layoutY="23.0" AnchorPane.leftAnchor="495.0">
                <children>
-                  <Label fx:id="popularSongs" style="-fx-background-color: lightblue;" text="Popular">
+                  <Label onMouseClicked="#popularSongsShow" style="-fx-background-color: lightblue;" text="Popular">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -377,7 +377,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="newSongs" style="-fx-background-color: lightblue;" text="New">
+                  <Label onMouseClicked="#newSongsShow" style="-fx-background-color: lightblue;" text="New">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -388,7 +388,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="oldSongs" style="-fx-background-color: lightblue;" text="Old">
+                  <Label onMouseClicked="#oldSongsShow" style="-fx-background-color: lightblue;" text="Old">
                      <font>
                         <Font size="20.0" />
                      </font>

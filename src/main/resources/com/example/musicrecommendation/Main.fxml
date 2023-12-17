@@ -7,11 +7,10 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -24,11 +23,9 @@
                         <Font name="System Bold" size="40.0" />
                     </font>
                 </Label>
-
-<!--            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="50.0" prefWidth="84.0" style="-fx-background-color: lightblue;" text="Logout">-->
-
             <Label fx:id="logoutButton" mnemonicParsing="false" onMouseClicked="#logoutButtonClicked" prefHeight="100.0" prefWidth="84.0" text="Logout" textFill="WHITE">
-               <font>   <Font name="System Bold" size="25.0" />
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font>
             </Label>
          </children>
@@ -81,7 +78,7 @@
                       </Button>
                   </children>
               </VBox>
-            <Label layoutX="300.0" layoutY="75.0" text="Songs" textFill="WHITE">
+            <Label fx:id="playlistTitle" layoutX="300.0" layoutY="75.0" text="Songs" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -90,260 +87,200 @@
                <content>
                   <HBox prefHeight="152.0" prefWidth="595.0" style="-fx-background-color: darkblue;">
                      <children>
-                        <AnchorPane prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle6" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle7" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle8" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle9" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle10" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle11" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle12" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle13" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle14" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="sTitle15" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle6" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle7" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle8" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle9" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle10" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle11" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle12" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle13" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle14" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="sTitle15" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
                         </AnchorPane>
                      </children>
                   </HBox>
@@ -358,98 +295,78 @@
                <content>
                   <HBox prefHeight="152.0" prefWidth="595.0" style="-fx-background-color: darkblue;">
                      <children>
-                        <AnchorPane prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="pTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="pTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="pTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="pTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="pTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="pTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="pTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="pTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="pTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
                            </children>
+                        </AnchorPane>
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
+                           <children>
+                              <Pane prefHeight="100.0" prefWidth="132.0" style="-fx-background-color: lightblue;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Label fx:id="pTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
                         </AnchorPane>
                      </children>
                   </HBox>
                </content>
             </ScrollPane>
-            <HBox layoutX="382.0" layoutY="23.0">
+            <HBox layoutX="382.0" layoutY="23.0" AnchorPane.leftAnchor="495.0">
                <children>
-                  <Label fx:id="popularSongs" style="-fx-background-color: lightblue;" text="Popular">
+                  <Label onMouseClicked="#popularSongsShow" style="-fx-background-color: lightblue;" text="Popular">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -460,7 +377,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="newSongs" style="-fx-background-color: lightblue;" text="New">
+                  <Label onMouseClicked="#newSongsShow" style="-fx-background-color: lightblue;" text="New">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -471,7 +388,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Label fx:id="oldSongs" style="-fx-background-color: lightblue;" text="Old">
+                  <Label onMouseClicked="#oldSongsShow" style="-fx-background-color: lightblue;" text="Old">
                      <font>
                         <Font size="20.0" />
                      </font>

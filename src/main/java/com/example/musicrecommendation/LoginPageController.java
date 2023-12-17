@@ -45,6 +45,7 @@ public class LoginPageController {
                 currentUser = new User(logInPage.getLogin());
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+
                 try {
                     Parent root = loader.load();
                     MainPageController mainPageController = loader.getController();
@@ -61,6 +62,19 @@ public class LoginPageController {
                     e.printStackTrace();
                     alert("Error loading Main.fxml: " + e.getMessage());
                 }
+
+                Parent root = loader.load();
+                MainPageController mainPageController = loader.getController();
+                mainPageController.show();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                ScrollPane scrollPane = new ScrollPane();
+                scrollPane.setContent(root);
+                scene = new Scene(scrollPane);
+                scrollPane.setFitToWidth(true);
+                scrollPane.setFitToHeight(true);
+                stage.setScene(scene);
+                stage.show();
+
             } else {
                 alert("You don't have an account.\nOr error in entering login and password");
             }

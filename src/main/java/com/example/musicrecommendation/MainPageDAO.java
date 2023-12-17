@@ -112,6 +112,7 @@ public class MainPageDAO {
         return null;
     }
 
+
     public void addToPlaylist(User user, Song song) throws SQLException {
         System.out.println("Adding song to playlist. User ID: " + user.getId() + ", Song ID: " + song.getId());
 
@@ -152,5 +153,78 @@ public class MainPageDAO {
 
 
 
+
+    public void playlistSongsShow(List<Label> sTitleList, String p_title) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement("select s.title from songs s natural join playlist p where s.id = p.s_id and p.p_title = ?");
+            statement.setString(1, p_title);
+            ResultSet resultSet = statement.executeQuery();
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void popularSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs order by popularity desc");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void newSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs s order by year desc");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void oldSongsShow(List<Label> sTitleList) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from songs s order by year asc;");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

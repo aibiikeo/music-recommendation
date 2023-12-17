@@ -9,7 +9,6 @@ public class LoginPageDAO {
     private String url = "jdbc:postgresql://localhost:5432/project";
     private String username = "postgres";
     private String pass = "21442139";
-    LogInPage logInPage = new LogInPage();
 
     public LoginPageDAO() {
         try {
@@ -56,10 +55,8 @@ public class LoginPageDAO {
             statement.setString(1, login);
             statement.setString(2, password);
             int affectedRows = statement.executeUpdate();
-
             if (affectedRows > 0) {
                 System.out.println("Record inserted successfully.");
-
                 connection.commit();
                 return true;
             }

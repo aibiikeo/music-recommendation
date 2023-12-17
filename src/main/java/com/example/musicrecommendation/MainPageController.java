@@ -1,20 +1,22 @@
 package com.example.musicrecommendation;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
-
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.SelectionModel;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.*;
 
 public class MainPageController {
     @FXML
@@ -59,13 +61,7 @@ public class MainPageController {
     private Label pTitle5;
 
     @FXML
-    private Label popularSongs;
-
-    @FXML
-    private Label newSongs;
-
-    @FXML
-    private Label oldSongs;
+    private ComboBox<String> songGenre;
 
     @FXML
     private Button delete;
@@ -75,10 +71,10 @@ public class MainPageController {
 
 
     @FXML
-    private ComboBox<String> songGenre;
+    private ComboBox<String> box;
 
     @FXML
-    private ComboBox<String> box;
+    private Label playlistTitle;
 
     MainPageDAO mainPageDAO = new MainPageDAO();
 
@@ -149,10 +145,8 @@ public class MainPageController {
         }
     }
 
-
     @FXML
     private void logoutButtonClicked() {
-
         openLoginWindow();
     }
 
@@ -161,7 +155,6 @@ public class MainPageController {
             Stage primaryStage = (Stage) logoutButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
             Parent root = loader.load();
-
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Login");
@@ -217,6 +210,104 @@ public class MainPageController {
 
 
 
+    private Label findLabelInAnchorPane(AnchorPane anchorPane) {
+        for (Node node : anchorPane.getChildren()) {
+            if (node instanceof Label) {
+                return (Label) node;
+            }
+        }
+        return null;
+    }
+
+    private Label getLabelPane (Pane pane) {
+        Node node = findLabelInAnchorPane((AnchorPane) pane.getParent());
+        if (node instanceof Label) {
+            return (Label) node;
+        }
+        return null;
+    }
+
+    @FXML
+    public void openSongInfo(MouseEvent event) {
+        if (event.getTarget() instanceof AnchorPane) {
+            AnchorPane clickedAnchorPane = (AnchorPane) event.getTarget();
+            Label songLabel = findLabelInAnchorPane(clickedAnchorPane);
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                openSongInformationWindow(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Pane){
+            Pane clickedPane = (Pane) event.getTarget();
+            Label songLabel = getLabelPane(clickedPane);
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                openSongInformationWindow(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Label){
+            Label clickedLabel = (Label) event.getTarget();
+            if (clickedLabel != null) {
+                String songTitle = clickedLabel.getText();
+                openSongInformationWindow(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Text){
+            Text clickedText = (Text) event.getTarget();
+            openSongInformationWindow(String.valueOf(clickedText));
+        }
+    }
+
+    @FXML
+    public void openPlaylist(MouseEvent event) {
+        System.out.println(event.getTarget());
+        if (event.getTarget() instanceof AnchorPane) {
+            AnchorPane clickedAnchorPane = (AnchorPane) event.getTarget();
+            Label songLabel = findLabelInAnchorPane(clickedAnchorPane);
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Pane){
+            Pane clickedPane = (Pane) event.getTarget();
+            Label songLabel = getLabelPane(clickedPane);
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Label){
+            Label clickedLabel = (Label) event.getTarget();
+            if (clickedLabel != null) {
+                String songTitle = clickedLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Text){
+            Text clickedText = (Text) event.getTarget();
+            mainPageDAO.playlistSongsShow(sTitleList, String.valueOf(clickedText));
+            playlistTitle.setText(String.valueOf(clickedText));
+        }
+    }
+
+    @FXML
+    public void popularSongsShow(){
+        mainPageDAO.popularSongsShow(sTitleList);
+    }
+
+    @FXML
+    public void newSongsShow(){
+        mainPageDAO.newSongsShow(sTitleList);
+    }
+
+    @FXML
+    public void oldSongsShow(){
+        mainPageDAO.oldSongsShow(sTitleList);
+    }
 
 
 }

@@ -1,11 +1,19 @@
 package com.example.musicrecommendation;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.SelectionModel;
+import javafx.stage.Stage;
+import java.io.IOException;
+import java.sql.*;
 
 public class MainPageController {
     @FXML
@@ -61,6 +69,9 @@ public class MainPageController {
     @FXML
     private ComboBox<String> songGenre;
 
+    @FXML
+    private ComboBox<String> box;
+
     MainPageDAO mainPageDAO = new MainPageDAO();
 
     private List<Label> pTitleList;
@@ -94,5 +105,35 @@ public class MainPageController {
     public void show() {
         mainPageDAO.playlistsShow(pTitleList);
         mainPageDAO.songsShow(sTitleList);
+    }
+
+    @FXML
+    private void searchButtonClicked() {
+        mainPageDAO.searchButton(box);
+    }
+
+    @FXML
+    private void comboBoxSelected() {
+        SelectionModel<String> selectionModel = box.getSelectionModel();
+        String selectedItem = selectionModel.getSelectedItem();
+        if (selectedItem != null && !selectedItem.isEmpty()){
+            openSongInformationWindow(selectedItem);
+        }
+    }
+
+    private void openSongInformationWindow(String songTitle) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("musicinfo.fxml"));
+            Parent root = loader.load();
+            SongInformationController songInformationController = loader.getController();
+            Song song = mainPageDAO.getSongByTitle(songTitle);
+            songInformationController.setSong(song);
+            Stage stage = new Stage();
+            stage.setTitle("Song Information");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

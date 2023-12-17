@@ -1,12 +1,13 @@
 package com.example.musicrecommendation;
 
+import javafx.scene.control.Label;
+
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageDAO {
-    private Connection conn;
     private String url = "jdbc:postgresql://localhost:5432/music-recommedation";
     private String username = "postgres";
     private String pass = "123456";
@@ -48,22 +49,41 @@ public class MainPageDAO {
         }
     }
 
-    public String playlistsShow() {
-        String title = "";
+    public void playlistsShow(List<Label> pTitleList) {
         try {
-            Connection connection = getConnection();
+            Connection connection = DriverManager.getConnection(url, username, pass);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("select distinct p_title from playlist");
-            while (resultSet.next()) {
-                title = resultSet.getString("p_title");
-                System.out.println(title);
+            int index = 0;
+            while (resultSet.next() && index < pTitleList.size()) {
+                String title = resultSet.getString("p_title");
+                pTitleList.get(index).setText(title);
+                index++;
             }
             resultSet.close();
             statement.close();
-//            connection.close();
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return title;
+    }
+
+    public void songsShow(List<Label> sTitleList) {
+        try {
+            Connection connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select title from songs order by random()");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

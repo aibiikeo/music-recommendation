@@ -24,11 +24,14 @@
                         <Font name="System Bold" size="40.0" />
                     </font>
                 </Label>
-            <Label onMouseClicked="#playlistsShow" prefHeight="100.0" prefWidth="84.0" text="Logout" textFill="WHITE">
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="50.0" prefWidth="84.0" style="-fx-background-color: lightblue;" text="Logout">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font size="14.0" />
                </font>
-            </Label>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
     </top>

@@ -16,6 +16,7 @@ public class LoginPageController {
     private TextField inputEmail;
     @FXML
     private PasswordField inputPassword;
+
     private Stage stage;
     private Scene scene;
     LoginPageDAO loginPageDAO = new LoginPageDAO();
@@ -67,6 +68,9 @@ public class LoginPageController {
         }
     }
 
-//    logout
+
+
+
+
 
 }

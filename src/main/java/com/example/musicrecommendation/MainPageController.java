@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionModel;
@@ -36,6 +37,9 @@ public class MainPageController {
 
     @FXML
     private Label oldSongs;
+
+    @FXML
+    private Button logoutButton;
 
     @FXML
     private ComboBox<String> songGenre;
@@ -114,5 +118,28 @@ public class MainPageController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void logoutButtonClicked() {
+
+        openLoginWindow();
+    }
+
+    private void openLoginWindow() {
+        try {
+            Stage primaryStage = (Stage) logoutButton.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.setTitle("Login");
+            primaryStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }

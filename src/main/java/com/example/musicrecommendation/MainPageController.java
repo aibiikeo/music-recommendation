@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
+
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.control.SelectionModel;
+
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.*;
@@ -68,7 +68,11 @@ public class MainPageController {
     private Label oldSongs;
 
     @FXML
+    private Button delete;
+
+    @FXML
     private Label logoutButton;
+
 
     @FXML
     private ComboBox<String> songGenre;
@@ -80,6 +84,9 @@ public class MainPageController {
 
     private List<Label> pTitleList;
     private List<Label> sTitleList;
+    @FXML
+    private ListView<Song> playlistListView;
+    private User currentUser;
 
     public void initialize() {
         pTitleList = new ArrayList<>();
@@ -104,6 +111,7 @@ public class MainPageController {
         sTitleList.add(sTitle13);
         sTitleList.add(sTitle14);
         sTitleList.add(sTitle15);
+        playlistListView.setItems(PlaylistModel.getInstance().getPlaylist());
     }
 
     public void show() {
@@ -162,6 +170,52 @@ public class MainPageController {
             e.printStackTrace();
         }
     }
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+    private User getCurrentUser() {
+        // Replace this with your actual method to get the current user
+        return currentUser;
+    }
+
+
+    private Song getSelectedSong() {
+        String selectedSongTitle = box.getSelectionModel().getSelectedItem();
+        return mainPageDAO.getSongByTitle(selectedSongTitle);
+    }
+
+
+
+//    @FXML
+//    private void addToPlaylistButtonClicked() {
+//        Song selectedSong = getSelectedSong();
+//        User currentUser = getCurrentUser();
+//
+//        if (selectedSong != null && currentUser != null) {
+//            try {
+//                mainPageDAO.addToPlaylist(currentUser, selectedSong);
+//
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//                // Handle the error, show an alert, etc.
+//            }
+//        }
+//    }
+
+
+
+
+    @FXML
+    private void deleteButtonClicked() {
+        Song selectedSong = playlistListView.getSelectionModel().getSelectedItem();
+        if (selectedSong != null) {
+            PlaylistModel.getInstance().removeFromPlaylist(selectedSong);
+            playlistListView.getItems().remove(selectedSong);
+        }
+    }
+
+
+
 
 
 

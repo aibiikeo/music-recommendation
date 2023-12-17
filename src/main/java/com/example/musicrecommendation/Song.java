@@ -8,6 +8,9 @@ public class Song {
     private int year;
     private int popularity;
 
+    public Song(int id, String title, String genre, int year, int popularity, String authorName) {
+    }
+
     public int getYear() {
         return year;
     }
@@ -38,7 +41,7 @@ public class Song {
 
     @Override
     public String toString() {
-        return title;
+        return title + "-" + authorName;
 
     }
     public int getId() {

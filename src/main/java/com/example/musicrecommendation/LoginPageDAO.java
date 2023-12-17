@@ -16,7 +16,6 @@ public class LoginPageDAO {
             connection = DriverManager.getConnection(url, username, pass);
             connection.setAutoCommit(false);
 
-            // Test the connection
             if (connection.isValid(1)) {
                 System.out.println("Connected to the database!");
             } else {
@@ -26,16 +25,6 @@ public class LoginPageDAO {
             e.printStackTrace();  // Print the full stack trace
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
-        }
-    }
-
-    public void closeConnection() {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error closing the database connection", e);
         }
     }
 
@@ -71,7 +60,6 @@ public class LoginPageDAO {
             if (affectedRows > 0) {
                 System.out.println("Record inserted successfully.");
 
-                // Commit the changes
                 connection.commit();
                 return true;
             }
@@ -81,4 +69,8 @@ public class LoginPageDAO {
         }
         return false;
     }
+
+
+
+
 }

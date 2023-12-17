@@ -9,14 +9,11 @@ public class LoginPageDAO {
     private String url = "jdbc:postgresql://localhost:5432/project";
     private String username = "postgres";
     private String pass = "21442139";
-    LogInPage logInPage = new LogInPage();
 
     public LoginPageDAO() {
         try {
             connection = DriverManager.getConnection(url, username, pass);
             connection.setAutoCommit(false);
-
-            // Test the connection
             if (connection.isValid(1)) {
                 System.out.println("Connected to the database!");
             } else {
@@ -26,16 +23,6 @@ public class LoginPageDAO {
             e.printStackTrace();  // Print the full stack trace
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
-        }
-    }
-
-    public void closeConnection() {
-        try {
-            if (connection != null && !connection.isClosed()) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error closing the database connection", e);
         }
     }
 
@@ -67,11 +54,8 @@ public class LoginPageDAO {
             statement.setString(1, login);
             statement.setString(2, password);
             int affectedRows = statement.executeUpdate();
-
             if (affectedRows > 0) {
                 System.out.println("Record inserted successfully.");
-
-                // Commit the changes
                 connection.commit();
                 return true;
             }

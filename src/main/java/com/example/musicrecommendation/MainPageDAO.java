@@ -110,4 +110,22 @@ public class MainPageDAO {
         return null;
     }
 
+    public void playlistSongsShow(List<Label> sTitleList, String p_title) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement("select s.title from songs s natural join playlist p where s.id = p.s_id and p.p_title = ?");
+            statement.setString(1, p_title);
+            ResultSet resultSet = statement.executeQuery();
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

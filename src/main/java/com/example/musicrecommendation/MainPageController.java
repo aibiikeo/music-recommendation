@@ -76,11 +76,15 @@ public class MainPageController {
 
     @FXML
     private ComboBox<String> box;
+    @FXML
+    private Label playlistTitle;
 
     MainPageDAO mainPageDAO = new MainPageDAO();
 
     private List<Label> pTitleList;
     private List<Label> sTitleList;
+
+
 
     public void initialize() {
         pTitleList = new ArrayList<>();
@@ -205,11 +209,43 @@ public class MainPageController {
         }
         else if(event.getTarget() instanceof Text){
             Text clickedText = (Text) event.getTarget();
-            Label songLabel = (Label) clickedText.getParent();
+            openSongInformationWindow(String.valueOf(clickedText));
+        }
+    }
+
+    @FXML
+    public void openPlaylist(MouseEvent event) {
+        System.out.println(event.getTarget());
+        if (event.getTarget() instanceof AnchorPane) {
+            AnchorPane clickedAnchorPane = (AnchorPane) event.getTarget();
+            Label songLabel = findLabelInAnchorPane(clickedAnchorPane);
             if (songLabel != null) {
                 String songTitle = songLabel.getText();
-                openSongInformationWindow(songTitle);
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
             }
+        }
+        else if(event.getTarget() instanceof Pane){
+            Pane clickedPane = (Pane) event.getTarget();
+            Label songLabel = getLabelPane(clickedPane);
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Label){
+            Label clickedLabel = (Label) event.getTarget();
+            if (clickedLabel != null) {
+                String songTitle = clickedLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                playlistTitle.setText(songTitle);
+            }
+        }
+        else if(event.getTarget() instanceof Text){
+            Text clickedText = (Text) event.getTarget();
+            mainPageDAO.playlistSongsShow(sTitleList, String.valueOf(clickedText));
+            playlistTitle.setText(String.valueOf(clickedText));
         }
     }
 }

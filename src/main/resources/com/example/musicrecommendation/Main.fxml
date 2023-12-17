@@ -78,7 +78,7 @@
                       </Button>
                   </children>
               </VBox>
-            <Label layoutX="300.0" layoutY="75.0" text="Songs" textFill="WHITE">
+            <Label fx:id="playlistTitle" layoutX="300.0" layoutY="75.0" text="Songs" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -100,7 +100,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -113,7 +113,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -126,7 +126,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -139,7 +139,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -152,7 +152,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -165,7 +165,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -178,7 +178,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -191,7 +191,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -204,7 +204,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -217,7 +217,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -230,7 +230,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -243,7 +243,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -256,7 +256,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -269,7 +269,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane onMouseClicked="#openSongInfo" minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openSongInfo" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -295,7 +295,7 @@
                <content>
                   <HBox prefHeight="152.0" prefWidth="595.0" style="-fx-background-color: darkblue;">
                      <children>
-                        <AnchorPane minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -308,7 +308,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -321,7 +321,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -334,7 +334,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -347,7 +347,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane minWidth="142.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                        <AnchorPane minWidth="142.0" onMouseClicked="#openPlaylist" prefWidth="142.0" style="-fx-background-color: lightyellow;">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" top="5.0" />
                            </HBox.margin>
@@ -364,7 +364,7 @@
                   </HBox>
                </content>
             </ScrollPane>
-            <HBox layoutX="382.0" layoutY="23.0" AnchorPane.rightAnchor="25.0">
+            <HBox layoutX="382.0" layoutY="23.0" AnchorPane.leftAnchor="495.0">
                <children>
                   <Label fx:id="popularSongs" style="-fx-background-color: lightblue;" text="Popular">
                      <font>

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.MainPageController">
+<BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.MainPageController">
     <top>
       <HBox style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
          <children>
@@ -24,14 +24,13 @@
                         <Font name="System Bold" size="40.0" />
                     </font>
                 </Label>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="50.0" prefWidth="84.0" style="-fx-background-color: lightblue;" text="Logout">
-               <font>
-                  <Font size="14.0" />
+
+<!--            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonClicked" prefHeight="50.0" prefWidth="84.0" style="-fx-background-color: lightblue;" text="Logout">-->
+
+            <Label fx:id="logoutButton" mnemonicParsing="false" onMouseClicked="#logoutButtonClicked" prefHeight="100.0" prefWidth="84.0" text="Logout" textFill="WHITE">
+               <font>   <Font name="System Bold" size="25.0" />
                </font>
-               <HBox.margin>
-                  <Insets top="20.0" />
-               </HBox.margin>
-            </Button>
+            </Label>
          </children>
       </HBox>
     </top>
@@ -87,7 +86,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="285.0" layoutY="105.0" prefHeight="168.0" prefWidth="595.0" style="-fx-background-color: transparent;">
+            <ScrollPane hbarPolicy="ALWAYS" layoutX="285.0" layoutY="105.0" prefHeight="168.0" prefWidth="595.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                <content>
                   <HBox prefHeight="152.0" prefWidth="595.0" style="-fx-background-color: darkblue;">
                      <children>
@@ -101,7 +100,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -115,24 +114,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -149,7 +131,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -166,7 +148,24 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@../../../../../../../img.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="sTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -186,7 +185,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle6" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -200,24 +199,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle7" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -234,7 +216,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle8" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -251,7 +233,24 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle9" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@../../../../../../../img.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="sTitle10" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -271,7 +270,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle11" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -285,24 +284,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle12" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -319,7 +301,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle13" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -336,7 +318,24 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="sTitle14" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@../../../../../../../img.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="sTitle15" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -355,7 +354,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ScrollPane layoutX="285.0" layoutY="310.0" prefHeight="168.0" prefWidth="595.0" style="-fx-background-color: transparent;">
+            <ScrollPane hbarPolicy="ALWAYS" layoutX="285.0" layoutY="310.0" prefHeight="168.0" prefWidth="595.0" style="-fx-background-color: transparent;" vbarPolicy="NEVER">
                <content>
                   <HBox prefHeight="152.0" prefWidth="595.0" style="-fx-background-color: darkblue;">
                      <children>
@@ -369,7 +368,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="pTitle" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="pTitle1" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -383,24 +382,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" top="5.0" />
-                           </HBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
-                           <children>
-                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                                 <image>
-                                    <Image url="@../../../../../../../img.jpg" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="pTitle2" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -417,7 +399,7 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="pTitle3" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -434,7 +416,24 @@
                                     <Image url="@../../../../../../../img.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                              <Label fx:id="pTitle4" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </AnchorPane>
+                        <AnchorPane layoutX="15.0" layoutY="15.0" prefWidth="142.0" style="-fx-background-color: lightyellow;">
+                           <children>
+                              <ImageView fitHeight="100.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                 <image>
+                                    <Image url="@../../../../../../../img.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="pTitle5" layoutX="17.0" layoutY="123.0" style="-fx-background-color: lightblue;" text="song" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

@@ -5,7 +5,7 @@ import java.sql.*;
 
 
 public class LoginPageDAO {
-    private Connection conn;
+    private Connection connection;
     private String url = "jdbc:postgresql://localhost:5432/project";
     private String username = "postgres";
     private String pass = "21442139";
@@ -13,12 +13,11 @@ public class LoginPageDAO {
 
     public LoginPageDAO() {
         try {
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(url, username, pass);
-            conn.setAutoCommit(false);
+            connection = DriverManager.getConnection(url, username, pass);
+            connection.setAutoCommit(false);
 
             // Test the connection
-            if (conn.isValid(1)) {
+            if (connection.isValid(1)) {
                 System.out.println("Connected to the database!");
             } else {
                 System.out.println("Failed to connect to the database!");
@@ -27,15 +26,13 @@ public class LoginPageDAO {
             e.printStackTrace();  // Print the full stack trace
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
         }
     }
 
     public void closeConnection() {
         try {
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error closing the database connection", e);
@@ -44,7 +41,7 @@ public class LoginPageDAO {
 
     public boolean isPasswordInDatabase(String login, String password) throws SQLException {
         String sql = "SELECT COUNT(*) AS count FROM \"public\".user_info WHERE login = ? AND password = ?";
-        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, login);
             statement.setString(2, password);
             try (ResultSet resultSet = statement.executeQuery()) {
@@ -66,7 +63,7 @@ public class LoginPageDAO {
 
     public boolean addtodatabase(String login, String password) throws SQLException {
         String sql = "INSERT INTO \"public\".user_info (login, password) VALUES (?, ?)";
-        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, login);
             statement.setString(2, password);
             int affectedRows = statement.executeUpdate();
@@ -75,7 +72,7 @@ public class LoginPageDAO {
                 System.out.println("Record inserted successfully.");
 
                 // Commit the changes
-                conn.commit();
+                connection.commit();
                 return true;
             }
         } catch (SQLException e) {

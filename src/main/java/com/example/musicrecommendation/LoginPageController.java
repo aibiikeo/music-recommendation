@@ -33,9 +33,13 @@ public class LoginPageController {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputEmail.getText());
         logInPage.setPassword(inputPassword.getText());
+
         try {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
-                Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+                Parent root = loader.load();
+                MainPageController mainPageController = loader.getController(); // Replace with appropriate way to get the controller
+                mainPageController.show();
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();
                 scrollPane.setContent(root);
@@ -47,6 +51,7 @@ public class LoginPageController {
             } else {
                 alert("You don't have an account.\nOr error in entering login and password");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,5 +1,7 @@
 package com.example.musicrecommendation;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -69,7 +71,7 @@ public class MainPageController {
     private ComboBox<String> box;
 
     @FXML
-    private Label playlistTitle;
+    private Label label;
 
     MainPageDAO mainPageDAO = new MainPageDAO();
 
@@ -99,6 +101,18 @@ public class MainPageController {
         sTitleList.add(sTitle13);
         sTitleList.add(sTitle14);
         sTitleList.add(sTitle15);
+        List<String> genres = mainPageDAO.songGenre();
+        if (genres != null) {
+            ObservableList<String> genreList = FXCollections.observableArrayList(genres);
+            songGenre.setItems(genreList);
+        }
+        songGenre.setOnAction(event -> {
+            String selectedGenre = songGenre.getValue();
+            if (selectedGenre != null && !selectedGenre.isEmpty()) {
+                label.setText(selectedGenre);
+                mainPageDAO.songsByGenre(sTitleList, selectedGenre);
+            }
+        });
     }
 
     public void show() {
@@ -199,20 +213,23 @@ public class MainPageController {
         }
         else if(event.getTarget() instanceof Text){
             Text clickedText = (Text) event.getTarget();
-            openSongInformationWindow(String.valueOf(clickedText));
+            Label songLabel = (Label) clickedText.getParent();
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                openSongInformationWindow(songTitle);
+            }
         }
     }
 
     @FXML
     public void openPlaylist(MouseEvent event) {
-        System.out.println(event.getTarget());
         if (event.getTarget() instanceof AnchorPane) {
             AnchorPane clickedAnchorPane = (AnchorPane) event.getTarget();
             Label songLabel = findLabelInAnchorPane(clickedAnchorPane);
             if (songLabel != null) {
                 String songTitle = songLabel.getText();
                 mainPageDAO.playlistSongsShow(sTitleList, songTitle);
-                playlistTitle.setText(songTitle);
+                label.setText(songTitle);
             }
         }
         else if(event.getTarget() instanceof Pane){
@@ -221,7 +238,7 @@ public class MainPageController {
             if (songLabel != null) {
                 String songTitle = songLabel.getText();
                 mainPageDAO.playlistSongsShow(sTitleList, songTitle);
-                playlistTitle.setText(songTitle);
+                label.setText(songTitle);
             }
         }
         else if(event.getTarget() instanceof Label){
@@ -229,30 +246,36 @@ public class MainPageController {
             if (clickedLabel != null) {
                 String songTitle = clickedLabel.getText();
                 mainPageDAO.playlistSongsShow(sTitleList, songTitle);
-                playlistTitle.setText(songTitle);
+                label.setText(songTitle);
             }
         }
         else if(event.getTarget() instanceof Text){
             Text clickedText = (Text) event.getTarget();
-            mainPageDAO.playlistSongsShow(sTitleList, String.valueOf(clickedText));
-            playlistTitle.setText(String.valueOf(clickedText));
+            Label songLabel = (Label) clickedText.getParent();
+            if (songLabel != null) {
+                String songTitle = songLabel.getText();
+                mainPageDAO.playlistSongsShow(sTitleList, songTitle);
+                label.setText(songTitle );
+            }
+
         }
     }
 
     @FXML
     public void popularSongsShow(){
         mainPageDAO.popularSongsShow(sTitleList);
+        label.setText("Popular songs");
     }
 
     @FXML
     public void newSongsShow(){
         mainPageDAO.newSongsShow(sTitleList);
+        label.setText("New songs");
     }
 
     @FXML
     public void oldSongsShow(){
         mainPageDAO.oldSongsShow(sTitleList);
+        label.setText("Old songs");
     }
-
-
 }

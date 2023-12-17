@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainPageDAO {
@@ -169,7 +170,44 @@ public class MainPageDAO {
         try {
             connection = DriverManager.getConnection(url, username, pass);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from songs s order by year asc;");
+            ResultSet resultSet = statement.executeQuery("select * from songs s order by year asc");
+            int index = 0;
+            while (resultSet.next() && index < sTitleList.size()) {
+                String title = resultSet.getString("title");
+                sTitleList.get(index).setText(title);
+                index++;
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<String> songGenre() {
+        List<String> genres = new ArrayList<>();
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select distinct genre from songs;");
+            while (resultSet.next()) {
+                String genre = resultSet.getString("genre");
+                genres.add(genre);
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return genres;
+    }
+
+    public void songsByGenre(List<Label> sTitleList, String genre) {
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement("select * from songs where genre = ?");
+            statement.setString(1, genre);
+            ResultSet resultSet = statement.executeQuery();
             int index = 0;
             while (resultSet.next() && index < sTitleList.size()) {
                 String title = resultSet.getString("title");

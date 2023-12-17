@@ -33,7 +33,6 @@ public class LoginPageController {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputEmail.getText());
         logInPage.setPassword(inputPassword.getText());
-
         try {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));

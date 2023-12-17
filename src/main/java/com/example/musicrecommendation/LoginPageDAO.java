@@ -14,6 +14,7 @@ public class LoginPageDAO {
         try {
             connection = DriverManager.getConnection(url, username, pass);
             connection.setAutoCommit(false);
+
             if (connection.isValid(1)) {
                 System.out.println("Connected to the database!");
             } else {
@@ -65,4 +66,8 @@ public class LoginPageDAO {
         }
         return false;
     }
+
+
+
+
 }

@@ -30,12 +30,12 @@
                         <Font size="31.0" />
                     </font>
                 </Label>
-                <TextField fx:id="inputEmail" maxHeight="30.0" maxWidth="300.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: lightgrey;">
+                <TextField fx:id="inputEmail" maxHeight="30.0" maxWidth="300.0" prefHeight="30.0" prefWidth="200.0" promptText="username" style="-fx-background-color: lightgrey;">
                     <VBox.margin>
                         <Insets left="50.0" top="20.0" />
                     </VBox.margin>
                 </TextField>
-                <PasswordField fx:id="inputPassword" maxHeight="30.0" maxWidth="300.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: lightgrey;">
+                <PasswordField fx:id="inputPassword" maxHeight="30.0" maxWidth="300.0" prefHeight="30.0" prefWidth="200.0" promptText="password" style="-fx-background-color: lightgrey;">
                     <VBox.margin>
                         <Insets left="50.0" top="20.0" />
                     </VBox.margin>

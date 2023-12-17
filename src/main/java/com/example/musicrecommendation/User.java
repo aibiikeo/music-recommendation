@@ -1,23 +1,14 @@
 package com.example.musicrecommendation;
 
 public class User {
-    private int id;
     private String username;
-    private String password;
+    private int id;
+    private String login;
 
-
-    public User(int id, String username, String password) {
-        this.id = id;
+    public User(String username) {
         this.username = username;
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
         this.id = id;
+        this.login = login;
     }
 
     public String getUsername() {
@@ -28,11 +19,15 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public int getId() {
+        return id;
+    }
+
+    public String getLogin() {
+        return login;
     }
 }

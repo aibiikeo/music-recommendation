@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class LoginPageController {
+
     @FXML
     private TextField inputEmail;
     @FXML
@@ -19,6 +19,7 @@ public class LoginPageController {
 
     private Stage stage;
     private Scene scene;
+    private User currentUser;
     LoginPageDAO loginPageDAO = new LoginPageDAO();
 
     private void alert(String error) {
@@ -29,13 +30,38 @@ public class LoginPageController {
         alert.showAndWait();
     }
 
-    public void loginbutton(ActionEvent event) throws IOException {
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    @FXML
+    public void loginbutton(ActionEvent event) {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputEmail.getText());
         logInPage.setPassword(inputPassword.getText());
         try {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
+                currentUser = new User(logInPage.getLogin());
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
+
+                try {
+                    Parent root = loader.load();
+                    MainPageController mainPageController = loader.getController();
+                    mainPageController.setCurrentUser(currentUser);  // Pass the current user to MainPageController
+
+                    // Debugging: Print a message to confirm that the code reached this point
+                    System.out.println("Main.fxml loaded successfully.");
+
+
+                    Stage newStage = new Stage();
+                    newStage.setScene(new Scene(root));
+                    newStage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    alert("Error loading Main.fxml: " + e.getMessage());
+                }
+
                 Parent root = loader.load();
                 MainPageController mainPageController = loader.getController();
                 mainPageController.show();
@@ -47,19 +73,21 @@ public class LoginPageController {
                 scrollPane.setFitToHeight(true);
                 stage.setScene(scene);
                 stage.show();
+
             } else {
                 alert("You don't have an account.\nOr error in entering login and password");
             }
-
         } catch (Exception e) {
             e.printStackTrace();
+            alert("An unexpected error occurred: " + e.getMessage());
         }
     }
 
-    public void signInButton(ActionEvent event) throws IOException {
+    public void signInButton(ActionEvent event) {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputEmail.getText());
         logInPage.setPassword(inputPassword.getText());
+
         try {
             if (!loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
                 loginPageDAO.addtodatabase(logInPage.getLogin(), logInPage.getPassword());
@@ -69,12 +97,7 @@ public class LoginPageController {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            alert("An unexpected error occurred: " + e.getMessage());
         }
     }
-
-
-
-
-
-
 }

@@ -57,7 +57,7 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <ListView fixedCellSize="35.0" layoutY="-70.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="450.0" prefWidth="200.0" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="-16.0" AnchorPane.rightAnchor="-16.0" AnchorPane.topAnchor="-16.0" />
+                              <ListView fx:id="playlistListView" fixedCellSize="35.0" layoutY="-70.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="450.0" prefWidth="200.0" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="-16.0" AnchorPane.rightAnchor="-16.0" AnchorPane.topAnchor="-16.0" />
                            </children>
                         </AnchorPane>
                     </content>
@@ -68,7 +68,7 @@
                         <Insets left="20.0" top="15.0" />
                      </VBox.margin>
                   </TitledPane>
-                      <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="250.0" style="-fx-background-color: lightblue;" text="Delete">
+                      <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#deleteButtonClicked" prefWidth="250.0" style="-fx-background-color: lightblue;" text="Delete">
                           <VBox.margin>
                               <Insets left="20.0" top="15.0" />
                           </VBox.margin>

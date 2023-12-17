@@ -1,7 +1,10 @@
 package com.example.musicrecommendation;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
+import java.awt.event.ActionEvent;
 
 public class SongInformationController {
 
@@ -20,9 +23,10 @@ public class SongInformationController {
     @FXML
     private Label authorNameLabel;
 
-    private Song song;
 
-    // Setter method to set the song information
+    private Song song;
+    MainPageDAO mainPageDAO = new MainPageDAO();
+
     public void setSong(Song song) {
         this.song = song;
         updateLabels();
@@ -38,6 +42,14 @@ public class SongInformationController {
             popularityLabel.setText(String.valueOf(song.getPopularity()));
         }
     }
+    @FXML
+    private void addToPlaylistClicked() {
+        if (song != null) {
+            PlaylistModel.getInstance().addToPlaylist(song);
+        }
+    }
+
+
 
 
 

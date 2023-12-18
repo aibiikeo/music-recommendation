@@ -16,11 +16,9 @@ public class LoginPageController {
 
     @FXML
     private PasswordField inputPassword;
-
     private Stage stage;
 
     private Scene scene;
-
     LoginPageDAO loginPageDAO = new LoginPageDAO();
 
     private void alert(String error) {
@@ -50,17 +48,15 @@ public class LoginPageController {
                 scrollPane.setFitToHeight(true);
                 stage.setScene(scene);
                 stage.show();
-
             } else {
                 alert("You don't have an account.\nOr error in entering login and password");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            alert("An unexpected error occurred: " + e.getMessage());
         }
     }
 
-    public void signInButton(ActionEvent event) {
+    public void signInButton(ActionEvent event) throws IOException {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
@@ -73,7 +69,11 @@ public class LoginPageController {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            alert("An unexpected error occurred: " + e.getMessage());
         }
     }
+
+
+
+
+
 }

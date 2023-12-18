@@ -76,6 +76,8 @@ public class MainPageController {
 
     MainPageDAO mainPageDAO = new MainPageDAO();
 
+    LoginPageDAO loginPageDAO = new LoginPageDAO();
+
     private List<Label> pTitleList;
     private List<Label> sTitleList;
     @FXML
@@ -173,36 +175,6 @@ public class MainPageController {
             e.printStackTrace();
         }
     }
-
-    public void setCurrentUser(User user) {
-        this.currentUser = user;
-    }
-
-    private User getCurrentUser() {
-        // Replace this with your actual method to get the current user
-        return currentUser;
-    }
-
-    private Song getSelectedSong() {
-        String selectedSongTitle = box.getSelectionModel().getSelectedItem();
-        return mainPageDAO.getSongByTitle(selectedSongTitle);
-    }
-
-//    @FXML
-//    private void addToPlaylistButtonClicked() {
-//        Song selectedSong = getSelectedSong();
-//        User currentUser = getCurrentUser();
-//
-//        if (selectedSong != null && currentUser != null) {
-//            try {
-//                mainPageDAO.addToPlaylist(currentUser, selectedSong);
-//
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//                // Handle the error, show an alert, etc.
-//            }
-//        }
-//    }
 
     @FXML
     private void deleteButtonClicked() {
@@ -321,5 +293,17 @@ public class MainPageController {
     public void oldSongsShow(){
         mainPageDAO.oldSongsShow(sTitleList);
         label.setText("Old songs");
+    }
+
+//    LoginPageController loginPageController = new LoginPageController();
+
+    @FXML
+    public void getUserPlaylist() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+        Parent root = loader.load();
+        LoginPageController loginPageController = loader.getController();
+        System.out.println(loginPageController);
+        System.out.println(loginPageController.getUserId());
+
     }
 }

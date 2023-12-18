@@ -111,48 +111,6 @@ public class MainPageDAO {
         return null;
     }
 
-
-    public void addToPlaylist(User user, Song song) throws SQLException {
-        System.out.println("Adding song to playlist. User ID: " + user.getId() + ", Song ID: " + song.getId());
-
-        String query = "INSERT INTO user_playlist (u_id, s_id) VALUES (?, ?)";
-
-        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1,  user.getId());
-            preparedStatement.setInt(2,  song.getId());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error adding song to the playlist", e);
-        }
-    }
-
-
-//    public List<Song> getUserPlaylist(User user) {
-//        List<Song> userPlaylist = new ArrayList<>();
-//        try {
-//            connection = DriverManager.getConnection(url, username, pass);
-//            String query = "SELECT s.* FROM user_playlist up " +
-//                    "JOIN songs s ON up.s_id = s.id " +
-//                    "WHERE up.u_id = ?";
-//            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-//                preparedStatement.setInt(1, user.getId());
-//                ResultSet resultSet = preparedStatement.executeQuery();
-//                while (resultSet.next()) {
-//                    Song song = new Song();
-//                    // Populate the song details from the result set
-//                    userPlaylist.add(song);
-//                }
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return userPlaylist;
-//    }
-
-
-
-
     public void playlistSongsShow(List<Label> sTitleList, String p_title) {
         try {
             connection = DriverManager.getConnection(url, username, pass);
@@ -262,5 +220,7 @@ public class MainPageDAO {
             e.printStackTrace();
         }
     }
+
+
 
 }

@@ -12,17 +12,12 @@ import java.io.IOException;
 
 public class LoginPageController {
     @FXML
-    private TextField inputEmail;
+    private TextField inputLogin;
 
     @FXML
     private PasswordField inputPassword;
     private Stage stage;
-
     private Scene scene;
-
-    private User currentUser;
-
-
     LoginPageDAO loginPageDAO = new LoginPageDAO();
 
     private void alert(String error) {
@@ -35,7 +30,7 @@ public class LoginPageController {
 
     public void loginbutton(ActionEvent event) throws IOException {
         LogInPage logInPage = new LogInPage();
-        logInPage.setLogin(inputEmail.getText());
+        logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
         try {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
@@ -44,8 +39,6 @@ public class LoginPageController {
                 MainPageController mainPageController = loader.getController();
                 mainPageController.show();
 
-                currentUser = new User(logInPage.getLogin());
-                mainPageController.setCurrentUser(currentUser);
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();
@@ -65,7 +58,7 @@ public class LoginPageController {
 
     public void signInButton(ActionEvent event) throws IOException {
         LogInPage logInPage = new LogInPage();
-        logInPage.setLogin(inputEmail.getText());
+        logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
         try {
             if (!loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
@@ -79,8 +72,12 @@ public class LoginPageController {
         }
     }
 
-
-
-
+//    public int initialize() {
+//        return loginPageDAO.getUserInfo(inputLogin.getText(), inputPassword.getText());
+//    }
+    public int getUserId(){
+        int id = loginPageDAO.getUserInfo(inputLogin.getText(), inputPassword.getText());
+        return id;
+    }
 
 }

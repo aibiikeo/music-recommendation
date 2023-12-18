@@ -1,6 +1,4 @@
 package com.example.musicrecommendation;
-
-
 import java.sql.*;
 
 
@@ -65,6 +63,25 @@ public class LoginPageDAO {
             throw new RuntimeException("Error inserting data into the database", e);
         }
         return false;
+    }
+
+    public int getUserInfo(String login, String password){
+        int id = 0;
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement("select id from user_info where login =? and password=?;");
+            statement.setString(1, login);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                id = resultSet.getInt("id");
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return id;
     }
 
 }

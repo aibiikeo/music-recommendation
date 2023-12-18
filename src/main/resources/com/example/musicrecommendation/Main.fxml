@@ -286,7 +286,7 @@
                   </HBox>
                </content>
             </ScrollPane>
-            <Label layoutX="300.0" layoutY="280.0" text="Playlists" textFill="WHITE">
+            <Label layoutX="300.0" layoutY="280.0" text="Playlists" textFill="WHITE" onMouseClicked="#getUserPlaylist">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

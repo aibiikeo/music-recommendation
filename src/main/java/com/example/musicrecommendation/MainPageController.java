@@ -169,7 +169,7 @@ public class MainPageController {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("Login");
+            primaryStage.setTitle("Music Recommendations!");
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();

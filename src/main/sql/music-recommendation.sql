@@ -1,12 +1,71 @@
---drop table author;
+--drop table author cascade;
 --drop table songs cascade;
 --drop table user_info cascade;
---drop table user_playlist;
---drop table playlist;
+--drop table user_playlist cascade;
+--drop table playlist cascade;
+--drop table song_playlist cascade;
 
-insert into user_info (login, password) values ('aaaa', 1111);
-insert into user_info (login, password) values ('bbbb', 2222);
-insert into user_info (login, password) values ('cccc', 3333);
+insert into user_info (login, password) values ('aaaa', '1111');
+insert into user_info (login, password) values ('bbbb', '2222');
+insert into user_info (login, password) values ('cccc', '3333');
+
+insert into author (id, name) values (1, 'Kanya Cordy');
+insert into author (id, name) values (2, 'Carol Harris');
+insert into author (id, name) values (3, 'Arielle Luetchford');
+insert into author (id, name) values (4, 'Jess Kneller');
+insert into author (id, name) values (5, 'Mozelle Cours');
+insert into author (id, name) values (6, 'Agnese Vautier');
+insert into author (id, name) values (7, 'Karna Cockrem');
+insert into author (id, name) values (8, 'Ron Puffett');
+insert into author (id, name) values (9, 'Florry Tadd');
+insert into author (id, name) values (10, 'Uta Bodemeaid');
+insert into author (id, name) values (11, 'Nathaniel Raper');
+insert into author (id, name) values (12, 'Andriana Bate');
+insert into author (id, name) values (13, 'Silvain Macon');
+insert into author (id, name) values (14, 'Flinn Wilstead');
+insert into author (id, name) values (15, 'Daphna Lage');
+insert into author (id, name) values (16, 'Carmon Geydon');
+insert into author (id, name) values (17, 'Sawyer Kenney');
+insert into author (id, name) values (18, 'Rebekkah Corpes');
+insert into author (id, name) values (19, 'Jordan Duprey');
+insert into author (id, name) values (20, 'Oralla Warboys');
+insert into author (id, name) values (21, 'Lisetta Caddell');
+insert into author (id, name) values (22, 'Viviyan Vittery');
+insert into author (id, name) values (23, 'Nikola Kach');
+insert into author (id, name) values (24, 'Conant Formilli');
+insert into author (id, name) values (25, 'Chuck Mort');
+insert into author (id, name) values (26, 'Jessy Gerraty');
+insert into author (id, name) values (27, 'Theodore Mounter');
+insert into author (id, name) values (28, 'Corabel Oehm');
+insert into author (id, name) values (29, 'Alessandra Kundt');
+insert into author (id, name) values (30, 'Margaretta Foskett');
+insert into author (id, name) values (31, 'Joleen Oolahan');
+insert into author (id, name) values (32, 'Melessa Demead');
+insert into author (id, name) values (33, 'Yolanda Cruddace');
+insert into author (id, name) values (34, 'Madelina McKay');
+insert into author (id, name) values (35, 'Gallagher Flintiff');
+insert into author (id, name) values (36, 'Nissy Sturdy');
+insert into author (id, name) values (37, 'Dillon Thunnercliffe');
+insert into author (id, name) values (38, 'Pansy Rawcliffe');
+insert into author (id, name) values (39, 'Kerrin Grundy');
+insert into author (id, name) values (40, 'Billie Jacomb');
+insert into author (id, name) values (41, 'Celine Smalley');
+insert into author (id, name) values (42, 'Dominique Marjanski');
+insert into author (id, name) values (43, 'Gardy Broomhall');
+insert into author (id, name) values (44, 'Alair Manifould');
+insert into author (id, name) values (45, 'Van Warlton');
+insert into author (id, name) values (46, 'Ara Edsell');
+insert into author (id, name) values (47, 'Ardra Avory');
+insert into author (id, name) values (48, 'Garret Colaton');
+insert into author (id, name) values (49, 'Brooke Stevani');
+insert into author (id, name) values (50, 'Jamie Danilchenko');
+
+insert into playlist values
+(1,'chillout lounge'),
+(2,'christmas hits'),
+(3,'lofi beats'),
+(4,'peacefull piano'),
+(5,'stress relief');
 
 insert into songs (id, title, genre, year, author_id, popularity) values (1, 'quam suspendisse', 'rock', 2009, 38, 2724);
 insert into songs (id, title, genre, year, author_id, popularity) values (2, 'amet', 'classical', 2005, 26, 2638);
@@ -209,260 +268,6 @@ insert into songs (id, title, genre, year, author_id, popularity) values (198, '
 insert into songs (id, title, genre, year, author_id, popularity) values (199, 'magna', 'metal', 1990, 13, 3639);
 insert into songs (id, title, genre, year, author_id, popularity) values (200, 'quis', 'country', 2011, 49, 416);
 
-
-insert into author (id, name) values (1, 'Kanya Cordy');
-insert into author (id, name) values (2, 'Carol Harris');
-insert into author (id, name) values (3, 'Arielle Luetchford');
-insert into author (id, name) values (4, 'Jess Kneller');
-insert into author (id, name) values (5, 'Mozelle Cours');
-insert into author (id, name) values (6, 'Agnese Vautier');
-insert into author (id, name) values (7, 'Karna Cockrem');
-insert into author (id, name) values (8, 'Ron Puffett');
-insert into author (id, name) values (9, 'Florry Tadd');
-insert into author (id, name) values (10, 'Uta Bodemeaid');
-insert into author (id, name) values (11, 'Nathaniel Raper');
-insert into author (id, name) values (12, 'Andriana Bate');
-insert into author (id, name) values (13, 'Silvain Macon');
-insert into author (id, name) values (14, 'Flinn Wilstead');
-insert into author (id, name) values (15, 'Daphna Lage');
-insert into author (id, name) values (16, 'Carmon Geydon');
-insert into author (id, name) values (17, 'Sawyer Kenney');
-insert into author (id, name) values (18, 'Rebekkah Corpes');
-insert into author (id, name) values (19, 'Jordan Duprey');
-insert into author (id, name) values (20, 'Oralla Warboys');
-insert into author (id, name) values (21, 'Lisetta Caddell');
-insert into author (id, name) values (22, 'Viviyan Vittery');
-insert into author (id, name) values (23, 'Nikola Kach');
-insert into author (id, name) values (24, 'Conant Formilli');
-insert into author (id, name) values (25, 'Chuck Mort');
-insert into author (id, name) values (26, 'Jessy Gerraty');
-insert into author (id, name) values (27, 'Theodore Mounter');
-insert into author (id, name) values (28, 'Corabel Oehm');
-insert into author (id, name) values (29, 'Alessandra Kundt');
-insert into author (id, name) values (30, 'Margaretta Foskett');
-insert into author (id, name) values (31, 'Joleen Oolahan');
-insert into author (id, name) values (32, 'Melessa Demead');
-insert into author (id, name) values (33, 'Yolanda Cruddace');
-insert into author (id, name) values (34, 'Madelina McKay');
-insert into author (id, name) values (35, 'Gallagher Flintiff');
-insert into author (id, name) values (36, 'Nissy Sturdy');
-insert into author (id, name) values (37, 'Dillon Thunnercliffe');
-insert into author (id, name) values (38, 'Pansy Rawcliffe');
-insert into author (id, name) values (39, 'Kerrin Grundy');
-insert into author (id, name) values (40, 'Billie Jacomb');
-insert into author (id, name) values (41, 'Celine Smalley');
-insert into author (id, name) values (42, 'Dominique Marjanski');
-insert into author (id, name) values (43, 'Gardy Broomhall');
-insert into author (id, name) values (44, 'Alair Manifould');
-insert into author (id, name) values (45, 'Van Warlton');
-insert into author (id, name) values (46, 'Ara Edsell');
-insert into author (id, name) values (47, 'Ardra Avory');
-insert into author (id, name) values (48, 'Garret Colaton');
-insert into author (id, name) values (49, 'Brooke Stevani');
-insert into author (id, name) values (50, 'Jamie Danilchenko');
-
-insert into playlist values
-(1,'chillout lounge',1),
-(1,'chillout lounge',7),
-(1,'chillout lounge',13),
-(1,'chillout lounge',18),
-(1,'chillout lounge',29),
-(1,'chillout lounge',33),
-(1,'chillout lounge',42),
-(1,'chillout lounge',63),
-(1,'chillout lounge',68),
-(1,'chillout lounge',75),
-(1,'chillout lounge',89),
-(1,'chillout lounge',95),
-(1,'chillout lounge',99),
-(1,'chillout lounge',103),
-(1,'chillout lounge',105),
-(1,'chillout lounge',111),
-(1,'chillout lounge',116),
-(1,'chillout lounge',117),
-(1,'chillout lounge',122),
-(1,'chillout lounge',132),
-(1,'chillout lounge',140),
-(1,'chillout lounge',142),
-(1,'chillout lounge',146),
-(1,'chillout lounge',152),
-(1,'chillout lounge',156),
-(1,'chillout lounge',160),
-(1,'chillout lounge',173),
-(1,'chillout lounge',174),
-(1,'chillout lounge',177),
-(1,'chillout lounge',178),
-(1,'chillout lounge',180),
-(1,'chillout lounge',183),
-(1,'chillout lounge',186),
-(1,'chillout lounge',196),
-(1,'chillout lounge',199),
-(2,'christmas hits',2),
-(2,'christmas hits',6),
-(2,'christmas hits',8),
-(2,'christmas hits',17),
-(2,'christmas hits',23),
-(2,'christmas hits',28),
-(2,'christmas hits',34),
-(2,'christmas hits',46),
-(2,'christmas hits',47),
-(2,'christmas hits',49),
-(2,'christmas hits',53),
-(2,'christmas hits',58),
-(2,'christmas hits',60),
-(2,'christmas hits',61),
-(2,'christmas hits',65),
-(2,'christmas hits',70),
-(2,'christmas hits',94),
-(2,'christmas hits',107),
-(2,'christmas hits',112),
-(2,'christmas hits',120),
-(2,'christmas hits',121),
-(2,'christmas hits',124),
-(2,'christmas hits',126),
-(2,'christmas hits',134),
-(2,'christmas hits',136),
-(2,'christmas hits',149),
-(2,'christmas hits',150),
-(2,'christmas hits',153),
-(2,'christmas hits',157),
-(2,'christmas hits',162),
-(2,'christmas hits',168),
-(2,'christmas hits',172),
-(2,'christmas hits',179),
-(2,'christmas hits',187),
-(2,'christmas hits',192),
-(3,'lofi beats',3),
-(3,'lofi beats',4),
-(3,'lofi beats',5),
-(3,'lofi beats',9),
-(3,'lofi beats',10),
-(3,'lofi beats',12),
-(3,'lofi beats',14),
-(3,'lofi beats',20),
-(3,'lofi beats',21),
-(3,'lofi beats',27),
-(3,'lofi beats',36),
-(3,'lofi beats',37),
-(3,'lofi beats',38),
-(3,'lofi beats',41),
-(3,'lofi beats',45),
-(3,'lofi beats',48),
-(3,'lofi beats',51),
-(3,'lofi beats',52),
-(3,'lofi beats',54),
-(3,'lofi beats',55),
-(3,'lofi beats',62),
-(3,'lofi beats',64),
-(3,'lofi beats',69),
-(3,'lofi beats',76),
-(3,'lofi beats',77),
-(3,'lofi beats',79),
-(3,'lofi beats',85),
-(3,'lofi beats',88),
-(3,'lofi beats',90),
-(3,'lofi beats',109),
-(3,'lofi beats',110),
-(3,'lofi beats',115),
-(3,'lofi beats',119),
-(3,'lofi beats',123),
-(3,'lofi beats',129),
-(3,'lofi beats',130),
-(3,'lofi beats',139),
-(3,'lofi beats',143),
-(3,'lofi beats',144),
-(3,'lofi beats',147),
-(3,'lofi beats',158),
-(3,'lofi beats',169),
-(3,'lofi beats',170),
-(3,'lofi beats',171),
-(3,'lofi beats',185),
-(3,'lofi beats',191),
-(3,'lofi beats',193),
-(3,'lofi beats',195),
-(4,'peacefull piano',15),
-(4,'peacefull piano',16),
-(4,'peacefull piano',19),
-(4,'peacefull piano',22),
-(4,'peacefull piano',25),
-(4,'peacefull piano',26),
-(4,'peacefull piano',31),
-(4,'peacefull piano',32),
-(4,'peacefull piano',35),
-(4,'peacefull piano',39),
-(4,'peacefull piano',43),
-(4,'peacefull piano',44),
-(4,'peacefull piano',56),
-(4,'peacefull piano',57),
-(4,'peacefull piano',59),
-(4,'peacefull piano',66),
-(4,'peacefull piano',67),
-(4,'peacefull piano',78),
-(4,'peacefull piano',82),
-(4,'peacefull piano',83),
-(4,'peacefull piano',84),
-(4,'peacefull piano',92),
-(4,'peacefull piano',93),
-(4,'peacefull piano',100),
-(4,'peacefull piano',101),
-(4,'peacefull piano',106),
-(4,'peacefull piano',118),
-(4,'peacefull piano',125),
-(4,'peacefull piano',128),
-(4,'peacefull piano',131),
-(4,'peacefull piano',133),
-(4,'peacefull piano',138),
-(4,'peacefull piano',154),
-(4,'peacefull piano',159),
-(4,'peacefull piano',165),
-(4,'peacefull piano',166),
-(4,'peacefull piano',175),
-(4,'peacefull piano',176),
-(4,'peacefull piano',181),
-(4,'peacefull piano',184),
-(4,'peacefull piano',188),
-(4,'peacefull piano',189),
-(4,'peacefull piano',194),
-(4,'peacefull piano',197),
-(4,'peacefull piano',198),
-(5,'stress relief',11),
-(5,'stress relief',24),
-(5,'stress relief',30),
-(5,'stress relief',40),
-(5,'stress relief',50),
-(5,'stress relief',71),
-(5,'stress relief',72),
-(5,'stress relief',73),
-(5,'stress relief',74),
-(5,'stress relief',80),
-(5,'stress relief',81),
-(5,'stress relief',86),
-(5,'stress relief',87),
-(5,'stress relief',91),
-(5,'stress relief',96),
-(5,'stress relief',97),
-(5,'stress relief',98),
-(5,'stress relief',102),
-(5,'stress relief',104),
-(5,'stress relief',108),
-(5,'stress relief',113),
-(5,'stress relief',114),
-(5,'stress relief',127),
-(5,'stress relief',135),
-(5,'stress relief',137),
-(5,'stress relief',141),
-(5,'stress relief',145),
-(5,'stress relief',148),
-(5,'stress relief',151),
-(5,'stress relief',155),
-(5,'stress relief',161),
-(5,'stress relief',163),
-(5,'stress relief',164),
-(5,'stress relief',167),
-(5,'stress relief',182),
-(5,'stress relief',190),
-(5,'stress relief',200);
-
 insert into user_playlist (u_id, s_id) values (1, 121);
 insert into user_playlist (u_id, s_id) values (1, 114);
 insert into user_playlist (u_id, s_id) values (2, 174);
@@ -473,3 +278,205 @@ insert into user_playlist (u_id, s_id) values (1, 146);
 insert into user_playlist (u_id, s_id) values (2, 147);
 insert into user_playlist (u_id, s_id) values (2, 143);
 insert into user_playlist (u_id, s_id) values (3, 89);
+
+insert into song_playlist (p_id, s_id) values
+(1,1),
+(1,7),
+(1,13),
+(1,18),
+(1,29),
+(1,33),
+(1,42),
+(1,63),
+(1,68),
+(1,75),
+(1,89),
+(1,95),
+(1,99),
+(1,103),
+(1,105),
+(1,111),
+(1,116),
+(1,117),
+(1,122),
+(1,132),
+(1,140),
+(1,142),
+(1,146),
+(1,152),
+(1,156),
+(1,160),
+(1,173),
+(1,174),
+(1,177),
+(1,178),
+(1,180),
+(1,183),
+(1,186),
+(1,196),
+(1,199),
+(2,2),
+(2,6),
+(2,8),
+(2,17),
+(2,23),
+(2,28),
+(2,34),
+(2,46),
+(2,47),
+(2,49),
+(2,53),
+(2,58),
+(2,60),
+(2,61),
+(2,65),
+(2,70),
+(2,94),
+(2,107),
+(2,112),
+(2,120),
+(2,121),
+(2,124),
+(2,126),
+(2,134),
+(2,136),
+(2,149),
+(2,150),
+(2,153),
+(2,157),
+(2,162),
+(2,168),
+(2,172),
+(2,179),
+(2,187),
+(2,192),
+(3,3),
+(3,4),
+(3,5),
+(3,9),
+(3,10),
+(3,12),
+(3,14),
+(3,20),
+(3,21),
+(3,27),
+(3,36),
+(3,37),
+(3,38),
+(3,41),
+(3,45),
+(3,48),
+(3,51),
+(3,52),
+(3,54),
+(3,55),
+(3,62),
+(3,64),
+(3,69),
+(3,76),
+(3,77),
+(3,79),
+(3,85),
+(3,88),
+(3,90),
+(3,109),
+(3,110),
+(3,115),
+(3,119),
+(3,123),
+(3,129),
+(3,130),
+(3,139),
+(3,143),
+(3,144),
+(3,147),
+(3,158),
+(3,169),
+(3,170),
+(3,171),
+(3,185),
+(3,191),
+(3,193),
+(3,195),
+(4,15),
+(4,16),
+(4,19),
+(4,22),
+(4,25),
+(4,26),
+(4,31),
+(4,32),
+(4,35),
+(4,39),
+(4,43),
+(4,44),
+(4,56),
+(4,57),
+(4,59),
+(4,66),
+(4,67),
+(4,78),
+(4,82),
+(4,83),
+(4,84),
+(4,92),
+(4,93),
+(4,100),
+(4,101),
+(4,106),
+(4,118),
+(4,125),
+(4,128),
+(4,131),
+(4,133),
+(4,138),
+(4,154),
+(4,159),
+(4,165),
+(4,166),
+(4,175),
+(4,176),
+(4,181),
+(4,184),
+(4,188),
+(4,189),
+(4,194),
+(4,197),
+(4,198),
+(5,11),
+(5,24),
+(5,30),
+(5,40),
+(5,50),
+(5,71),
+(5,72),
+(5,73),
+(5,74),
+(5,80),
+(5,81),
+(5,86),
+(5,87),
+(5,91),
+(5,96),
+(5,97),
+(5,98),
+(5,102),
+(5,104),
+(5,108),
+(5,113),
+(5,114),
+(5,127),
+(5,135),
+(5,137),
+(5,141),
+(5,145),
+(5,148),
+(5,151),
+(5,155),
+(5,161),
+(5,163),
+(5,164),
+(5,167),
+(5,182),
+(5,190),
+(5,200);

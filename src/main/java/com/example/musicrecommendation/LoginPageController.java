@@ -28,7 +28,8 @@ public class LoginPageController {
         alert.showAndWait();
     }
 
-    public void loginbutton(ActionEvent event) throws IOException {
+    @FXML
+    public void loginbutton(ActionEvent event) {
         LogInPage logInPage = new LogInPage();
         logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
@@ -38,7 +39,6 @@ public class LoginPageController {
                 Parent root = loader.load();
                 MainPageController mainPageController = loader.getController();
                 mainPageController.show();
-
 
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();

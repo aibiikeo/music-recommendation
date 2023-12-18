@@ -10,14 +10,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class LoginPageController {
     @FXML
     private TextField inputEmail;
+
     @FXML
     private PasswordField inputPassword;
     private Stage stage;
+
     private Scene scene;
+
+    private User currentUser;
+
+
     LoginPageDAO loginPageDAO = new LoginPageDAO();
 
     private void alert(String error) {
@@ -38,6 +43,10 @@ public class LoginPageController {
                 Parent root = loader.load();
                 MainPageController mainPageController = loader.getController();
                 mainPageController.show();
+
+                currentUser = new User(logInPage.getLogin());
+                mainPageController.setCurrentUser(currentUser);
+
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();
                 scrollPane.setContent(root);

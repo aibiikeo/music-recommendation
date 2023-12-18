@@ -1,13 +1,13 @@
 package com.example.musicrecommendation;
 
 public class User {
-    private String username;
     private int id;
+    private String username;
     private String login;
 
     public User(String username) {
-        this.username = username;
         this.id = id;
+        this.username = username;
         this.login = login;
     }
 

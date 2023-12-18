@@ -11,7 +11,6 @@ public class SongInformationController {
     @FXML
     private Label titleLabel;
 
-
     @FXML
     private Label genreLabel;
 
@@ -20,9 +19,9 @@ public class SongInformationController {
 
     @FXML
     private Label popularityLabel;
+
     @FXML
     private Label authorNameLabel;
-
 
     private Song song;
     MainPageDAO mainPageDAO = new MainPageDAO();
@@ -31,7 +30,6 @@ public class SongInformationController {
         this.song = song;
         updateLabels();
     }
-
 
     private void updateLabels() {
         if (song != null) {
@@ -42,6 +40,7 @@ public class SongInformationController {
             popularityLabel.setText(String.valueOf(song.getPopularity()));
         }
     }
+
     @FXML
     private void addToPlaylistClicked() {
         if (song != null) {

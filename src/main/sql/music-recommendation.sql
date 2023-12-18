@@ -4,9 +4,9 @@
 --drop table user_playlist;
 --drop table playlist;
 
-insert into user_info (id, login, password) values (1, 'aaaa', 1111);
-insert into user_info (id, login, password) values (2, 'bbbb', 2222);
-insert into user_info (id, login, password) values (3, 'cccc', 3333);
+insert into user_info (login, password) values ('aaaa', 1111);
+insert into user_info (login, password) values ('bbbb', 2222);
+insert into user_info (login, password) values ('cccc', 3333);
 
 insert into songs (id, title, genre, year, author_id, popularity) values (1, 'quam suspendisse', 'rock', 2009, 38, 2724);
 insert into songs (id, title, genre, year, author_id, popularity) values (2, 'amet', 'classical', 2005, 26, 2638);

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class LoginPageController {
     @FXML
-    private TextField inputEmail;
+    private TextField inputLogin;
 
     @FXML
     private PasswordField inputPassword;
@@ -20,8 +20,6 @@ public class LoginPageController {
     private Stage stage;
 
     private Scene scene;
-
-    private User currentUser;
 
     LoginPageDAO loginPageDAO = new LoginPageDAO();
 
@@ -33,14 +31,10 @@ public class LoginPageController {
         alert.showAndWait();
     }
 
-    public User getCurrentUser() {
-        return currentUser;
-    }
-
     @FXML
     public void loginbutton(ActionEvent event) {
         LogInPage logInPage = new LogInPage();
-        logInPage.setLogin(inputEmail.getText());
+        logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
         try {
             if (loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {
@@ -48,10 +42,6 @@ public class LoginPageController {
                 Parent root = loader.load();
                 MainPageController mainPageController = loader.getController();
                 mainPageController.show();
-
-                currentUser = new User(logInPage.getLogin());
-                mainPageController.setCurrentUser(currentUser);
-
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 ScrollPane scrollPane = new ScrollPane();
                 scrollPane.setContent(root);
@@ -72,7 +62,7 @@ public class LoginPageController {
 
     public void signInButton(ActionEvent event) {
         LogInPage logInPage = new LogInPage();
-        logInPage.setLogin(inputEmail.getText());
+        logInPage.setLogin(inputLogin.getText());
         logInPage.setPassword(inputPassword.getText());
         try {
             if (!loginPageDAO.isPasswordInDatabase(logInPage.getLogin(), logInPage.getPassword())) {

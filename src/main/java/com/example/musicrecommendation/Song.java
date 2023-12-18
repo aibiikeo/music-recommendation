@@ -11,8 +11,15 @@ public class Song {
     public Song(int id, String title, String genre, int year, int popularity, String authorName) {
     }
 
+    public Song() {
+    }
+
     public int getYear() {
         return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public String getAuthorName() {
@@ -23,10 +30,6 @@ public class Song {
         this.authorName = authorName;
     }
 
-    public void setYear(int year) {
-        this.year = year;
-    }
-
     public int getPopularity() {
         return popularity;
     }
@@ -35,15 +38,6 @@ public class Song {
         this.popularity = popularity;
     }
 
-    public Song() {
-
-    }
-
-    @Override
-    public String toString() {
-        return title + "-" + authorName;
-
-    }
     public int getId() {
         return id;
     }
@@ -68,6 +62,10 @@ public class Song {
         this.genre = genre;
     }
 
+    @Override
+    public String toString() {
+        return title + " - " + authorName;
 
+    }
 }
 

@@ -66,11 +66,7 @@ public class MainPageController {
     private ComboBox<String> songGenre;
 
     @FXML
-    private Button delete;
-
-    @FXML
     private Label logoutButton;
-
 
     @FXML
     private ComboBox<String> box;
@@ -177,21 +173,20 @@ public class MainPageController {
             e.printStackTrace();
         }
     }
+
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
+
     private User getCurrentUser() {
         // Replace this with your actual method to get the current user
         return currentUser;
     }
 
-
     private Song getSelectedSong() {
         String selectedSongTitle = box.getSelectionModel().getSelectedItem();
         return mainPageDAO.getSongByTitle(selectedSongTitle);
     }
-
-
 
 //    @FXML
 //    private void addToPlaylistButtonClicked() {
@@ -209,9 +204,6 @@ public class MainPageController {
 //        }
 //    }
 
-
-
-
     @FXML
     private void deleteButtonClicked() {
         Song selectedSong = playlistListView.getSelectionModel().getSelectedItem();
@@ -220,9 +212,6 @@ public class MainPageController {
             playlistListView.getItems().remove(selectedSong);
         }
     }
-
-
-
 
     private Label findLabelInAnchorPane(AnchorPane anchorPane) {
         for (Node node : anchorPane.getChildren()) {

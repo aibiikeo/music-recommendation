@@ -21,7 +21,7 @@ public class LoginPageDAO {
                 System.out.println("Failed to connect to the database!");
             }
         } catch (SQLException e) {
-            e.printStackTrace();  // Print the full stack trace
+            e.printStackTrace();
             System.err.println("Error executing query: " + e.getMessage());
             throw new RuntimeException("Error checking password in the database", e);
         }
@@ -66,8 +66,5 @@ public class LoginPageDAO {
         }
         return false;
     }
-
-
-
 
 }

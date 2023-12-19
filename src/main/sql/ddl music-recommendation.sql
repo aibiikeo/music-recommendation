@@ -10,8 +10,8 @@ create table author (
 );
 
 create table playlist(
-  p_id int primary key,
-  p_title varchar(50)
+  id int primary key,
+  title varchar(50)
 );
 
 create table songs(
@@ -19,11 +19,11 @@ create table songs(
   title varchar(50),
   genre varchar(50),
   year int,
-  author_id int references author(id),
+  a_id int references author(id),
   popularity int
 );
 
-create table user_playlist(
+create table user_songs(
 	s_id int,
 	u_id int,
 	foreign key(s_id) references songs(id),
@@ -35,6 +35,6 @@ create table song_playlist(
 	s_id int,
 	p_id int,
 	foreign key(s_id) references songs(id),
-	foreign key(p_id) references playlist(p_id),
+	foreign key(p_id) references playlist(id),
 	primary key (s_id, p_id)
 );

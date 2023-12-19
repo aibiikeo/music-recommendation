@@ -1,50 +1,53 @@
 --Find most popular somg in playlist, ordered by descending
-select * from songs
+select id as s_id, title as s_title, popularity from songs
 order by popularity desc;
 
 --Get newest/oldest songs
-select * from songs s
+select id as s_id, title as s_title, "year"  from songs s
 order by year desc;
 
-select * from songs s
+select id as s_id, title as s_title, "year" from songs s
 order by year asc;
 
 --Get songs with certain genre
-select * from songs
+select id as s_id, title as s_title, genre from songs
 where genre = 'metal';
 
 --Get existing playlists
-select distinct p_title from playlist;
+select title from playlist;
 
 --Get songs from exact playlist
-select s.id, s.title, p.p_title from songs s natural join playlist p
-where s.id = p.s_id and p.p_title = 'stress relief';
+select s.id as s_id, s.title as s_title, p.title as p_title from songs s 
+full join song_playlist sp on s.id = sp.s_id
+full join playlist p on sp.p_id = p.id
+where p.title = 'stress relief';
 
 --Get all genres
 select distinct genre from songs;
 
 --Count of songs in each playlist
-select p_title, count(*) from playlist p
-group by p_title;
+select p.title , count(*) from playlist p
+full join song_playlist sp on p.id = sp.p_id
+group by p.title;
 
 --Count of songs with same genre
 select genre, count(*) from songs s
 group by genre;
 
---Get all songs information
-select s.*, a.name, p.p_title
-from songs s
-join author a on s.author_id = a.id
-join playlist p on s.id=p.s_id
+--Get song's all information
+select s.id as s_id, s.title as s_title, genre, "year", popularity, a."name" as s_author, p.title as p_title from songs s
+natural join author a
+full join song_playlist sp on s.id = sp.s_id
+full join playlist p on sp.p_id = p.id
 where s.title = 'vitae';
 
 --Get author's all songs
-select a."name" , s.title from author a, songs s
-where a.id = s.author_id
-order by a.name;
+select a.*, s.title from songs s 
+full join author a on s.a_id = a.id
+where a."name" = 'Jessy Gerraty';
 
 --Count of songs of each author
-select a."name" , count(s.title) from author a, songs s
-where a.id = s.author_id
-group by a."name"
-order by a.name;
+select a.*, count(s.*) from songs s 
+full join author a on s.a_id = a.id
+group by a."name", a.id
+order by a.id;

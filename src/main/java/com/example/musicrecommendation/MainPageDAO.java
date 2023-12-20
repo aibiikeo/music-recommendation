@@ -34,10 +34,10 @@ public class MainPageDAO {
         try {
             connection = DriverManager.getConnection(url, username, pass);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select distinct p_title from playlist");
+            ResultSet resultSet = statement.executeQuery("select title from playlist");
             int index = 0;
             while (resultSet.next() && index < pTitleList.size()) {
-                String title = resultSet.getString("p_title");
+                String title = resultSet.getString("title");
                 pTitleList.get(index).setText(title);
                 index++;
             }
@@ -89,7 +89,7 @@ public class MainPageDAO {
     public Song getSongByTitle(String title) {
         String sql = "SELECT s.*, a.name AS author_name " +
                 "FROM songs s " +
-                "JOIN author a ON s.author_id = a.id " +
+                "JOIN author a ON s.a_id = a.id " +
                 "WHERE s.title = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, title);
@@ -156,12 +156,16 @@ public class MainPageDAO {
     public void playlistSongsShow(List<Label> sTitleList, String p_title) {
         try {
             connection = DriverManager.getConnection(url, username, pass);
-            PreparedStatement statement = connection.prepareStatement("select s.title from songs s natural join playlist p where s.id = p.s_id and p.p_title = ?");
+            PreparedStatement statement = connection.prepareStatement(
+                    "select s.id as s_id, s.title as s_title, p.title as p_title from songs s " +
+                    "full join song_playlist sp on s.id = sp.s_id " +
+                    "full join playlist p on sp.p_id = p.id " +
+                    "where p.title = ? ");
             statement.setString(1, p_title);
             ResultSet resultSet = statement.executeQuery();
             int index = 0;
             while (resultSet.next() && index < sTitleList.size()) {
-                String title = resultSet.getString("title");
+                String title = resultSet.getString("s_title");
                 sTitleList.get(index).setText(title);
                 index++;
             }

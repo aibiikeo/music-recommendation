@@ -11,6 +11,9 @@ public class User {
         this.login = login;
     }
 
+    public User(int userId, String userLogin, String userPassword) {
+    }
+
     public String getUsername() {
         return username;
     }

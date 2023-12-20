@@ -15,52 +15,55 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.MainPageController">
-    <top>
+   <top>
       <HBox style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
          <children>
-                <Label prefHeight="100.0" prefWidth="782.0" text="   Melodify" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="40.0" />
-                    </font>
-                </Label>
-            <Label fx:id="logoutButton" mnemonicParsing="false" onMouseClicked="#logoutButtonClicked" prefHeight="100.0" prefWidth="84.0" text="Logout" textFill="WHITE">
+            <Label prefHeight="100.0" prefWidth="745.0" text="Melodify" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="logoutButton" onMouseClicked="#logoutButtonClicked" prefHeight="100.0" prefWidth="84.0" text="Logout" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
          </children>
       </HBox>
-    </top>
-    <center>
+   </top>
+   <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-              <VBox AnchorPane.leftAnchor="0.0">
-                  <children>
-                      <HBox>
-                          <children>
+            <VBox AnchorPane.leftAnchor="0.0">
+               <children>
+                  <HBox>
+                     <children>
                         <ComboBox fx:id="box" editable="true" onAction="#comboBoxSelected" prefHeight="39.0" prefWidth="250.0">
                            <HBox.margin>
                               <Insets bottom="10.0" left="20.0" top="20.0" />
                            </HBox.margin>
                         </ComboBox>
-                              <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#searchButtonClicked" prefWidth="100.0" style="-fx-background-color: #99b3ff;" text="Search">
-                                  <HBox.margin>
-                                      <Insets left="5.0" top="20.0" />
-                                  </HBox.margin>
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#searchButtonClicked" prefWidth="100.0" style="-fx-background-color: #99b3ff;" text="Search">
+                           <HBox.margin>
+                              <Insets left="5.0" top="20.0" />
+                           </HBox.margin>
                            <font>
                               <Font size="18.0" />
                            </font>
-                              </Button>
-                          </children>
-                      </HBox>
+                        </Button>
+                     </children>
+                  </HBox>
                   <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="350.0" prefWidth="250.0" text="My playlist" textAlignment="CENTER">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ListView fx:id="playlistListView" fixedCellSize="35.0" layoutY="-70.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="450.0" prefWidth="200.0" AnchorPane.bottomAnchor="-16.0" AnchorPane.leftAnchor="-16.0" AnchorPane.rightAnchor="-16.0" AnchorPane.topAnchor="-16.0" />
                            </children>
                         </AnchorPane>
-                    </content>
+                     </content>
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -68,16 +71,16 @@
                         <Insets left="20.0" top="15.0" />
                      </VBox.margin>
                   </TitledPane>
-                      <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#deleteButtonClicked" prefWidth="250.0" style="-fx-background-color: lightblue;" text="Delete">
-                          <VBox.margin>
-                              <Insets left="20.0" top="15.0" />
-                          </VBox.margin>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#deleteButtonClicked" prefWidth="250.0" style="-fx-background-color: lightblue;" text="Delete">
+                     <VBox.margin>
+                        <Insets left="20.0" top="15.0" />
+                     </VBox.margin>
                      <font>
                         <Font size="18.0" />
                      </font>
-                      </Button>
-                  </children>
-              </VBox>
+                  </Button>
+               </children>
+            </VBox>
             <Label fx:id="label" layoutX="300.0" layoutY="75.0" text="Songs" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -286,7 +289,7 @@
                   </HBox>
                </content>
             </ScrollPane>
-            <Label layoutX="300.0" layoutY="280.0" text="Playlists" textFill="WHITE" onMouseClicked="#getUserPlaylist">
+            <Label layoutX="300.0" layoutY="280.0" text="Playlists" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -399,10 +402,10 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <ComboBox fx:id="songGenre" prefHeight="35.0" prefWidth="150.0" promptText="Choose genre" style="-fx-background-color: lightblue;"/>
+                  <ComboBox fx:id="songGenre" prefHeight="35.0" prefWidth="150.0" promptText="Choose genre" style="-fx-background-color: lightblue;" />
                </children>
             </HBox>
          </children>
       </AnchorPane>
-    </center>
+   </center>
 </BorderPane>

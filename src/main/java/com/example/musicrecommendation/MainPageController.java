@@ -61,28 +61,19 @@ public class MainPageController {
     private Label pTitle4;
     @FXML
     private Label pTitle5;
-
     @FXML
     private ComboBox<String> songGenre;
-
     @FXML
     private Label logoutButton;
-
     @FXML
     private ComboBox<String> box;
-
     @FXML
     private Label label;
-
-    MainPageDAO mainPageDAO = new MainPageDAO();
-
-    LoginPageDAO loginPageDAO = new LoginPageDAO();
-
-    private List<Label> pTitleList;
-    private List<Label> sTitleList;
     @FXML
     private ListView<Song> playlistListView;
-    private User currentUser;
+    MainPageDAO mainPageDAO = new MainPageDAO();
+    private List<Label> pTitleList;
+    private List<Label> sTitleList;
 
     public void initialize() {
         pTitleList = new ArrayList<>();
@@ -295,15 +286,4 @@ public class MainPageController {
         label.setText("Old songs");
     }
 
-//    LoginPageController loginPageController = new LoginPageController();
-
-    @FXML
-    public void getUserPlaylist() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
-        Parent root = loader.load();
-        LoginPageController loginPageController = loader.getController();
-        System.out.println(loginPageController);
-        System.out.println(loginPageController.getUserId());
-
-    }
 }

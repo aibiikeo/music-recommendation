@@ -8,9 +8,6 @@ public class Song {
     private int year;
     private int popularity;
 
-    public Song(int id, String title, String genre, int year, int popularity, String authorName) {
-    }
-
     public Song() {
     }
 

@@ -10,21 +10,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.LoginPageController">
+<BorderPane maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicrecommendation.LoginPageController">
     <top>
-        <VBox prefHeight="100.0" prefWidth="900.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER" VBox.vgrow="ALWAYS">
+        <HBox style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
             <children>
-<<<<<<< HEAD
-                <Label prefHeight="97.0" prefWidth="409.0" text="Melodify" textFill="WHITE" onMouseClicked="#getUserId">
-=======
-                <Label prefHeight="97.0" prefWidth="409.0" text="Melodify" textFill="WHITE">
->>>>>>> c5e029f609caf0aef4cd267e05efc0b0d50c5c60
+                <Label prefHeight="100.0" prefWidth="782.0" text="Melodify" textFill="WHITE">
                     <font>
-                        <Font name="Andale Mono" size="39.0" />
+                        <Font name="System Bold" size="40.0" />
                     </font>
+                    <HBox.margin>
+                        <Insets left="40.0" />
+                    </HBox.margin>
                 </Label>
             </children>
-        </VBox>
+        </HBox>
     </top>
     <center>
         <VBox maxHeight="400.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="400.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">

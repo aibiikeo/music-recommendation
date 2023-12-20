@@ -1,10 +1,7 @@
 package com.example.musicrecommendation;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
-import java.awt.event.ActionEvent;
 
 public class SongInformationController {
 
@@ -24,7 +21,6 @@ public class SongInformationController {
     private Label authorNameLabel;
 
     private Song song;
-    MainPageDAO mainPageDAO = new MainPageDAO();
 
     public void setSong(Song song) {
         this.song = song;

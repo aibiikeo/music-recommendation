@@ -115,9 +115,10 @@ public class MainPageDAO {
             connection = DriverManager.getConnection(url, username, pass);
             PreparedStatement statement = connection.prepareStatement(
                     "select s.id as s_id, s.title as s_title, p.title as p_title from songs s " +
-                            "full join song_playlist sp on s.id = sp.s_id " +
-                            "full join playlist p on sp.p_id = p.id " +
-                            "where p.title = ? ");
+                    "full join song_playlist sp on s.id = sp.s_id " +
+                    "full join playlist p on sp.p_id = p.id " +
+                    "where p.title = ? ");
+
             statement.setString(1, p_title);
             ResultSet resultSet = statement.executeQuery();
             int index = 0;

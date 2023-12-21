@@ -61,8 +61,8 @@ public class LoginPageDAO {
             connection = DriverManager.getConnection(url, username, pass);
             PreparedStatement statement = connection.prepareStatement(
                     "update user_info " +
-                            "set logged = true " +
-                            "where login = ? and password = ? ");
+                    "set logged = true " +
+                    "where login = ? and password = ? ");
             statement.setString(1, login);
             statement.setString(2, password);
             statement.executeUpdate();

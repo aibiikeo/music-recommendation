@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 public class SongInformationController {
-
     @FXML
     private Label titleLabel;
 
@@ -37,19 +36,24 @@ public class SongInformationController {
         }
     }
 
-    @FXML
-    private void addToPlaylistClicked() {
-        if (song != null) {
-            PlaylistModel.getInstance().addToPlaylist(song);
-        }
+    private MainPageController mainPageController;
+
+    public void setMainPageController(MainPageController mainPageController) {
+        this.mainPageController = mainPageController;
     }
 
-
-
-
-
-
-
+    MainPageDAO mainPageDAO = new MainPageDAO();
+    @FXML
+    private void addToPlaylistClicked() {
+        if (song != null && mainPageController != null) {
+            String s = String.valueOf(song);
+            String title = s.substring(0, s.indexOf("-")-1);
+            String name = s.substring(s.indexOf("-")+2);
+            mainPageDAO.addUserSong(title, name);
+            PlaylistModel.getInstance().addToPlaylist(song);
+            mainPageController.updatePlaylistListView();
+        }
+    }
 }
 
 

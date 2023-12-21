@@ -2,13 +2,11 @@ package com.example.musicrecommendation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
 public class PlaylistModel {
-
     private static PlaylistModel instance;
     private ObservableList<Song> playlist;
 
-    private PlaylistModel() {
+    public PlaylistModel() {
         playlist = FXCollections.observableArrayList();
     }
 

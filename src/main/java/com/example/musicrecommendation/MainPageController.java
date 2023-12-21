@@ -110,7 +110,15 @@ public class MainPageController {
                 mainPageDAO.songsByGenre(sTitleList, selectedGenre);
             }
         });
-        playlistListView.setItems(PlaylistModel.getInstance().getPlaylist());
+        mainPageDAO.getUserPlaylist(playlistListView);
+    }
+
+    public void updatePlaylistListView() {
+        if (playlistListView != null) {
+            ObservableList<Song> currentItems = playlistListView.getItems();
+            currentItems.add(PlaylistModel.getInstance().getPlaylist().get(PlaylistModel.getInstance().getPlaylist().size() - 1));
+            playlistListView.setItems(currentItems);
+        }
     }
 
     public void show() {
@@ -134,15 +142,17 @@ public class MainPageController {
 
     private void openSongInformationWindow(String songTitle) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("musicinfo.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("musicInfo.fxml"));
             Parent root = loader.load();
             SongInformationController songInformationController = loader.getController();
+            songInformationController.setMainPageController(this);
             Song song = mainPageDAO.getSongByTitle(songTitle);
             songInformationController.setSong(song);
             Stage stage = new Stage();
             stage.setTitle("Song Information");
             stage.setScene(new Scene(root));
             stage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -285,5 +295,9 @@ public class MainPageController {
         mainPageDAO.oldSongsShow(sTitleList);
         label.setText("Old songs");
     }
+
+
+
+
 
 }

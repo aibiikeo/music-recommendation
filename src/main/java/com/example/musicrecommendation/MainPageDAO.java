@@ -4,6 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -225,4 +227,96 @@ public class MainPageDAO {
         }
     }
 
+    public void getUserPlaylist(ListView<Song> playlistListView){
+        PlaylistModel pm = new PlaylistModel();
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(
+                    "select s.*, a.name as name from songs s " +
+                        "full join user_songs us on s.id = us.s_id " +
+                        "full join user_info u on us.u_id = u.id " +
+                        "full join author a on s.a_id = a.id " +
+                        "where u.logged = true ");
+            while (resultSet.next()){
+                Song song = new Song();
+                song.setId(resultSet.getInt("id"));
+                song.setTitle(resultSet.getString("title"));
+                song.setGenre(resultSet.getString("genre"));
+                song.setAuthorName(resultSet.getString("name"));
+                song.setYear(resultSet.getInt("year"));
+                song.setPopularity(resultSet.getInt("popularity"));
+                if (song.getTitle() != null && song.getAuthorName() != null)
+                    pm.addToPlaylist(song);
+            }
+            playlistListView.setItems(pm.getPlaylist());
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void addUserSong(String title, String name){
+        int s_id = getUserSongId(title, name);
+        int u_id = getUserId(title, name);
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement(
+                    "insert into user_songs (s_id, u_id) " +
+                    "select ?, ? " +
+                    "where not exists (select 1 from user_songs where s_id = ? and u_id = ?) ");
+            statement.setInt(1, s_id);
+            statement.setInt(2, u_id);
+            statement.setInt(3, s_id);
+            statement.setInt(4, u_id);
+            statement.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public int getUserSongId(String title, String name){
+        int s_id = 0;
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement(
+                    "select s.id from songs as s " +
+                    "full join public.user_songs us on s.id = us.s_id " +
+                    "full join public.user_info u on us.u_id = u.id " +
+                    "full join public.author a on s.a_id = a.id " +
+                    "where s.title = ? and a.name = ? ");
+            statement.setString(1, title);
+            statement.setString(2, name);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                s_id = resultSet.getInt("id");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+        return s_id;
+    }
+
+    public int getUserId(String title, String name){
+        int u_id = 0;
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from user_info where logged = true");
+            while (resultSet.next()) {
+                u_id = resultSet.getInt("id");
+            }
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+        return u_id;
+    }
 }

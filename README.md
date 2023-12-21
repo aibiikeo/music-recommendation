@@ -72,3 +72,10 @@ Implement effective error handling to gracefully manage issues such as database 
 ## MVC pattern
 ![MVC pattern](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/mvc.png)
 
+## Screens of applicaion
+![1](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/Снимок%20экрана%202023-12-21%20в%2017.49.28.png)
+![2](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/Снимок%20экрана%202023-12-21%20в%2017.49.38.png)
+![3](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/Снимок%20экрана%202023-12-21%20в%2017.49.42.png)
+![4](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/Снимок%20экрана%202023-12-21%20в%2017.49.45.png)
+![5](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/Снимок%20экрана%202023-12-21%20в%2017.49.54.png)
+

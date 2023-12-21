@@ -68,3 +68,7 @@ Implement effective error handling to gracefully manage issues such as database 
 - Create a user profile.
 - Explore recommendations on the dashboard.
 - Use search and filters to discover specific music.
+
+## MVC pattern
+![MVC pattern](https://github.com/aibiikeo/music-recommendation/blob/main/src/main/mvc.png)
+

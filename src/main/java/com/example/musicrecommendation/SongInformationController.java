@@ -54,6 +54,8 @@ public class SongInformationController {
             mainPageController.updatePlaylistListView();
         }
     }
+
+
 }
 
 

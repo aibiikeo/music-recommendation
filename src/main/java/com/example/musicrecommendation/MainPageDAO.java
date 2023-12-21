@@ -259,7 +259,7 @@ public class MainPageDAO {
 
     public void addUserSong(String title, String name){
         int s_id = getUserSongId(title, name);
-        int u_id = getUserId(title, name);
+        int u_id = getUserId();
         try {
             connection = DriverManager.getConnection(url, username, pass);
             PreparedStatement statement = connection.prepareStatement(
@@ -277,6 +277,7 @@ public class MainPageDAO {
             System.err.println(e.getMessage());
         }
     }
+
 
     public int getUserSongId(String title, String name){
         int s_id = 0;
@@ -302,7 +303,7 @@ public class MainPageDAO {
         return s_id;
     }
 
-    public int getUserId(String title, String name){
+    public int getUserId(){
         int u_id = 0;
         try {
             connection = DriverManager.getConnection(url, username, pass);
@@ -319,4 +320,42 @@ public class MainPageDAO {
         }
         return u_id;
     }
+
+    public void deleteUserSong(int s_id){
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement(
+                    "delete from user_songs " +
+                            "where s_id in( " +
+                            "select us.s_id from songs s " +
+                            "full join user_songs us on s.id = us.s_id " +
+                            "full join user_info u on us.u_id = u.id " +
+                            "where u.logged = true and us.s_id = ?)");
+            statement.setInt(1, s_id);
+            statement.execute();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public int getSongId(String title){
+        int s_id = 0;
+        try {
+            connection = DriverManager.getConnection(url, username, pass);
+            PreparedStatement statement = connection.prepareStatement("select id from songs where title = ? ");
+            statement.setString(1, title);
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                s_id = resultSet.getInt("id");
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println(e.getMessage());
+        }
+        return s_id;
+    }
+
 }

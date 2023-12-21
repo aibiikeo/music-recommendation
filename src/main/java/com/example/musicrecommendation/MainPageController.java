@@ -75,6 +75,8 @@ public class MainPageController {
     private List<Label> pTitleList;
     private List<Label> sTitleList;
 
+    private Song song;
+
     public void initialize() {
         pTitleList = new ArrayList<>();
         pTitleList.add(pTitle1);
@@ -177,14 +179,6 @@ public class MainPageController {
         }
     }
 
-    @FXML
-    private void deleteButtonClicked() {
-        Song selectedSong = playlistListView.getSelectionModel().getSelectedItem();
-        if (selectedSong != null) {
-            PlaylistModel.getInstance().removeFromPlaylist(selectedSong);
-            playlistListView.getItems().remove(selectedSong);
-        }
-    }
 
     private Label findLabelInAnchorPane(AnchorPane anchorPane) {
         for (Node node : anchorPane.getChildren()) {
@@ -296,8 +290,17 @@ public class MainPageController {
         label.setText("Old songs");
     }
 
+    @FXML
+    private void deleteButtonClicked() {
+        Song selectedSong = playlistListView.getSelectionModel().getSelectedItem();
+        if (selectedSong != null) {
+            String s = String.valueOf(selectedSong);
+            String title = s.substring(0, s.indexOf("-")-1);
+            int s_id = mainPageDAO.getSongId(title);
+            mainPageDAO.deleteUserSong(s_id);
 
-
-
-
+            PlaylistModel.getInstance().removeFromPlaylist(selectedSong);
+            playlistListView.getItems().remove(selectedSong);
+        }
+    }
 }
